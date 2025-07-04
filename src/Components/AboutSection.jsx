@@ -20,7 +20,10 @@ const AboutSection = () => {
             <span className="absolute left-0 bottom-0 w-12 h-1 bg-gray-800"></span>
           </h2>
           <p className="text-gray-600 mt-4">
-            At BeginYatra, we understand the thrill of exploring new destinations and the joy of discovering hidden gems. We’re passionate about connecting travelers with the perfect experiences, making their journeys unforgettable.
+            At Tour & Travels, we understand the thrill of exploring new
+            destinations and the joy of discovering hidden gems. We’re
+            passionate about connecting travelers with the perfect experiences,
+            making their journeys unforgettable.
           </p>
         </div>
       </div>
@@ -30,16 +33,23 @@ const AboutSection = () => {
         <div className="flex flex-col md:flex-row justify-center items-center">
           {/* Mission */}
           <div className="w-full md:w-1/2 mb-6 md:mb-0 md:pr-10 text-center md:text-left">
-            <h3 className="text-xl font-semibold text-gray-800 mb-2">Our Mission</h3>
+            <h3 className="text-xl font-semibold text-gray-800 mb-2">
+              Our Mission
+            </h3>
             <p className="text-gray-600">
-              To make travel accessible, affordable, and enjoyable for everyone by offering reliable services, customized packages, and 24/7 customer support.
+              To make travel accessible, affordable, and enjoyable for everyone
+              by offering reliable services, customized packages, and 24/7
+              customer support.
             </p>
           </div>
           {/* Vision */}
           <div className="w-full md:w-1/2 md:pl-10 text-center md:text-left">
-            <h3 className="text-xl font-semibold text-gray-800 mb-2">Our Vision</h3>
+            <h3 className="text-xl font-semibold text-gray-800 mb-2">
+              Our Vision
+            </h3>
             <p className="text-gray-600">
-              To become the most trusted and innovative travel platform, empowering people to explore the world with ease and confidence.
+              To become the most trusted and innovative travel platform,
+              empowering people to explore the world with ease and confidence.
             </p>
           </div>
         </div>

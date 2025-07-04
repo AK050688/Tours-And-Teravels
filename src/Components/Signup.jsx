@@ -76,7 +76,7 @@ const Signup = () => {
           Create Your Account
         </h1>
         <h2 className="text-center text-gray-600 mt-2 mb-6 text-sm sm:text-base">
-          Join Begin Yatra and start your journey
+          Join Tour & Travels and start your journey
         </h2>
 
         <form className="space-y-6" onSubmit={signupHandler}>

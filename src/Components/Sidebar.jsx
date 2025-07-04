@@ -50,19 +50,17 @@ const SideBar = () => {
         isMobile
           ? "fixed inset-0 z-50 bg-white w-64 h-full shadow-lg"
           : "w-64 h-full relative"
-      }`}
-    >
+      }`}>
       <div className="flex flex-col justify-between h-full border-r border-slate-200">
         <div>
           <div className="flex justify-between items-center border-y p-4 h-20">
             <h1 className="text-2xl font-bold text-blue-400">
-              <Link to="/">Begin Yatra</Link>
+              <Link to="/">Tour & Travels</Link>
             </h1>
             {isMobile ? (
               <button
                 onClick={() => dispatch(setSidebarOpen(false))}
-                className="flex items-center"
-              >
+                className="flex items-center">
                 <StepBack className="text-blue-400" />
               </button>
             ) : null}
@@ -76,8 +74,7 @@ const SideBar = () => {
                   link.to === location.pathname
                     ? "bg-blue-400 text-white"
                     : "hover:bg-gray-100"
-                }`}
-              >
+                }`}>
                 {link.label}
               </Link>
             ))}
@@ -87,8 +84,7 @@ const SideBar = () => {
         <div className="p-4">
           <button
             onClick={handleLogout}
-            className="w-full px-4 py-2 text-red-600 border border-red-300 rounded hover:bg-red-50"
-          >
+            className="w-full px-4 py-2 text-red-600 border border-red-300 rounded hover:bg-red-50">
             Logout
           </button>
         </div>

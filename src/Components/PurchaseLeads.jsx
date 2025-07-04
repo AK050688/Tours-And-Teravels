@@ -7,8 +7,9 @@ import { BiSearch, BiFilter } from "react-icons/bi";
 import { BsCalendar3, BsInfoCircle } from "react-icons/bs";
 import { AiOutlinePhone, AiOutlineMail } from "react-icons/ai";
 import { selectAccessToken, selectUser } from "../store/userSlice";
-import { Users } from "lucide-react";
-
+import { Download, Users } from "lucide-react";
+import Papa from "papaparse";
+import * as XLSX from "xlsx";
 const PurchaseLeads = () => {
   const [leads, setLeads] = useState([]);
   const [filteredLeads, setFilteredLeads] = useState([]);
@@ -31,6 +32,10 @@ const PurchaseLeads = () => {
     totalSpent: 0,
     thisMonth: 0,
   });
+
+  console.log('====================================');
+  console.log("Stats",stats);
+  console.log('====================================');
 
   const maskInfo = (value) => (value ? "****" : "N/A");
 
@@ -124,7 +129,7 @@ const PurchaseLeads = () => {
         },
         {
           headers: {
-            Authorization: `Bearer ${token}`,
+            Authorization: `${token}`,
           },
         }
       );
@@ -208,6 +213,34 @@ const PurchaseLeads = () => {
     applyFilters();
   }, [searchTerm, leadTypeFilter, destinationFilter, sourceFilter, leads]);
 
+
+  
+
+    const csv = Papa.unparse(leads, {
+      header: true,
+      delimiter: ",",
+      newline: "\r\n",
+    });
+
+    const convertCvsToXlsx = (csvData, filename) => {
+      const workbook = XLSX.read(csvData, { type: "string" });
+      const worksheet = workbook.Sheets[workbook.SheetNames[0]];
+      const excelBuffer = XLSX.write(workbook, {
+        bookType: "xlsx",
+        type: "array",
+      });
+      const dataBlob = new Blob([excelBuffer], {
+        type: "application/octet-stream",
+      });
+      const url = URL.createObjectURL(dataBlob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = filename + ".xlsx";
+      link.click();
+      URL.revokeObjectURL(url);
+    };
+
+
   return (
     <div className="w-full min-h-screen bg-gray-50">
       {/* Header */}
@@ -262,12 +295,12 @@ const PurchaseLeads = () => {
                 Search & Filter
               </h4>
             </div>
-            {/* <button
-              onClick={() => handleRequestLeadReplacement()}
-              className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors font-medium text-sm"
-            >
-              Request Replacement
-            </button> */}
+            <button
+              onClick={() => convertCvsToXlsx(csv, "Purchased Leads")}
+              className="flex items-center gap-2 mb-4 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors">
+              <Download className="w-4 h-4" />
+              Download Pruchased Leads
+            </button>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-3">
@@ -284,8 +317,7 @@ const PurchaseLeads = () => {
             <select
               value={leadTypeFilter}
               onChange={(e) => setLeadTypeFilter(e.target.value)}
-              className="border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
-            >
+              className="border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none">
               <option value="all">All Types</option>
               <option value="Domestic">Domestic</option>
               <option value="International">International</option>
@@ -306,8 +338,7 @@ const PurchaseLeads = () => {
             />
             <button
               onClick={fetchLeadsData}
-              className="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition-colors font-medium"
-            >
+              className="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition-colors font-medium">
               🔄 Refresh
             </button>
           </div>
@@ -330,8 +361,7 @@ const PurchaseLeads = () => {
             filteredLeads.map(({ lead, cost, replacementStatus }) => (
               <div
                 key={lead?._id || lead?.leadId}
-                className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 hover:shadow-md hover:-translate-y-1 transition-all duration-200"
-              >
+                className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 hover:shadow-md hover:-translate-y-1 transition-all duration-200">
                 {/* Lead Header */}
                 <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
                   <div className="flex items-center gap-4">
@@ -357,8 +387,7 @@ const PurchaseLeads = () => {
                           : (lead?.tripType || "") === "International"
                           ? "bg-blue-100 text-blue-800"
                           : "bg-gray-100 text-gray-800"
-                      }`}
-                    >
+                      }`}>
                       {lead?.tripType || "N/A"}
                     </span>
                     <div className="text-right">
@@ -478,8 +507,7 @@ const PurchaseLeads = () => {
                       <p className="text-gray-900 text-base capitalize">
                         <span className="font-medium">Status: </span>
                         <span
-                          className={`${statusColourMap[replacementStatus]} text-white px-2 py-1 rounded-md capitalize`}
-                        >
+                          className={`${statusColourMap[replacementStatus]} text-white px-2 py-1 rounded-md capitalize`}>
                           {replacementStatus || "N/A"}
                         </span>
                       </p>
@@ -493,8 +521,7 @@ const PurchaseLeads = () => {
                         onClick={() =>
                           handleRequestLeadReplacement(lead._id || lead.leadId)
                         }
-                        className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors font-medium text-sm"
-                      >
+                        className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors font-medium text-sm">
                         Request Replacement
                       </button>
                     ) : (
@@ -532,8 +559,7 @@ const PurchaseLeads = () => {
                   submitMessage.includes("successfully")
                     ? "text-green-600"
                     : "text-red-600"
-                }`}
-              >
+                }`}>
                 {submitMessage}
               </p>
             )}
@@ -541,15 +567,13 @@ const PurchaseLeads = () => {
               <button
                 onClick={() => setIsModalOpen(false)}
                 className="px-4 py-2 text-gray-600 bg-gray-200 rounded-lg hover:bg-gray-300 transition-colors"
-                disabled={isSubmitting}
-              >
+                disabled={isSubmitting}>
                 Cancel
               </button>
               <button
                 disabled={isSubmitting}
                 onClick={handleSubmitReplacement}
-                className="px-4 py-2 text-white bg-blue-500 rounded-lg hover:bg-blue-600 transition-colors"
-              >
+                className="px-4 py-2 text-white bg-blue-500 rounded-lg hover:bg-blue-600 transition-colors">
                 {isSubmitting ? "Processing..." : "Submit"}
               </button>
             </div>

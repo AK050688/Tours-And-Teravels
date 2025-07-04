@@ -8,28 +8,35 @@ export default function ContactSection() {
         <div className="bg-white shadow-md rounded-lg p-6">
           <form className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700">Full Name</label>
+              <label className="block text-sm font-medium text-gray-700">
+                Full Name
+              </label>
               <input
                 type="text"
                 className="mt-1 w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700">Email Address</label>
+              <label className="block text-sm font-medium text-gray-700">
+                Email Address
+              </label>
               <input
                 type="email"
                 className="mt-1 w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700">Message</label>
+              <label className="block text-sm font-medium text-gray-700">
+                Message
+              </label>
               <textarea
                 rows="5"
-                className="mt-1 w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
-              ></textarea>
+                className="mt-1 w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-400"></textarea>
             </div>
-            <button type='submit' className='w-full bg-sky-400 text-white font-semibold py-2 rounded-md hover:bg-sky-500 transition'>
-                Submit
+            <button
+              type="submit"
+              className="w-full bg-sky-400 text-white font-semibold py-2 rounded-md hover:bg-sky-500 transition">
+              Submit
             </button>
           </form>
         </div>
@@ -43,7 +50,7 @@ export default function ContactSection() {
 
           <div className="mb-4">
             <h4 className="font-semibold">Email</h4>
-            <p className="text-gray-700">info@beginyatra.com</p>
+            <p className="text-gray-700">info@tour&travels.com</p>
           </div>
           <div className="mb-4">
             <h4 className="font-semibold">Phone</h4>
@@ -52,7 +59,8 @@ export default function ContactSection() {
           <div className="mb-4">
             <h4 className="font-semibold">Address</h4>
             <p className="text-gray-700">
-              Begin Yatra<br />
+              Tour & Travels
+              <br />
               Mandar Hill, Banka, Bihar, India 813104
             </p>
           </div>

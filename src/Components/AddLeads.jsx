@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   User,
   Phone,
@@ -15,6 +15,7 @@ import {
   Edit,
   Plus,
   Hash,
+  Download,
 } from "lucide-react";
 import { FaShoppingCart, FaTag } from "react-icons/fa";
 import api from "../api/axios";
@@ -24,6 +25,7 @@ import { useSelector } from "react-redux";
 // import { selectLoading, setLoading } from "../store/loadingSlice";
 import * as XLSX from "xlsx";
 import Papa from "papaparse";
+// import axios from "axios";
 const defaultForm = {
   leadId: "",
   name: "",
@@ -48,8 +50,9 @@ const defaultForm = {
 
 export default function AddLeads() {
   const [isLoading, setIsLoading] = useState(false);
-  console.log("isLoadiing", isLoading);
-
+  // console.log("isLoadiing", isLoading);
+  const fileInputRef = useRef(null);
+  const [selectedFile, setSelectedFile] = useState(null);
   const accessToken = useSelector(selectAccessToken);
   // const [soldLeads, setSoldLeads] = useState([]);
 
@@ -389,7 +392,7 @@ export default function AddLeads() {
         { satatus: "sold" },
         {
           headers: {
-            Authorization: `Bearer ${accessToken}`,
+            Authorization: `${accessToken}`,
           },
         }
       );
@@ -409,50 +412,182 @@ export default function AddLeads() {
     }
   };
 
+  // const csv = Papa.unparse(totalUsers, {
+  //   header: true,
+  //   delimiter: ",",
+  //   newline: "\r\n",
+  // });
 
-    const csv = Papa.unparse(totalUsers, {
-      header: true,
-      delimiter: ",",
-      newline: "\r\n",
-    });
-  
-    const convertCvsToXlsx = (csvData, filename) => {
-      const workbook = XLSX.read(csvData, { type: "string" });
-      const worksheet = workbook.Sheets[workbook.SheetNames[0]];
-      const excelBuffer = XLSX.write(workbook, {
-        bookType: "xlsx",
-        type: "array",
+  // const convertCvsToXlsx = (csvData, filename) => {
+  //   const workbook = XLSX.read(csvData, { type: "string" });
+  //   const worksheet = workbook.Sheets[workbook.SheetNames[0]];
+  //   const excelBuffer = XLSX.write(workbook, {
+  //     bookType: "xlsx",
+  //     type: "array",
+  //   });
+  //   const dataBlob = new Blob([excelBuffer], {
+  //     type: "application/octet-stream",
+  //   });
+  //   const url = URL.createObjectURL(dataBlob);
+  //   const link = document.createElement("a");
+  //   link.href = url;
+  //   link.download = filename + ".xlsx";
+  //   link.click();
+  //   URL.revokeObjectURL(url);
+  // };
+
+  const handleOnChange = (e) => {
+    setSelectedFile(e.target.files[0]);
+  };
+
+  const handleSubmitUploadData = async (e) => {
+    e.preventDefault(); // Prevent default form submission
+    setIsLoading(true);
+
+    if (!selectedFile) {
+      toast.error("Please select a file to upload");
+      setIsLoading(false);
+      return;
+    }
+
+    // Validate file size (e.g., max 100MB)
+    if (selectedFile.size > 100 * 1024 * 1024) {
+      toast.error("File size exceeds 5MB limit");
+      setIsLoading(false);
+      return;
+    }
+
+    try {
+      let jsonData;
+      if (
+        selectedFile.name.endsWith(".xlsx") ||
+        selectedFile.name.endsWith(".xls")
+      ) {
+        const data = await selectedFile.arrayBuffer();
+        const workbook = XLSX.read(data, { type: "array" });
+        const sheetName = workbook.SheetNames[0]; // Consider allowing sheet selection
+        const workSheet = workbook.Sheets[sheetName];
+        const csv = XLSX.utils.sheet_to_csv(workSheet);
+        jsonData = await new Promise((resolve, reject) => {
+          Papa.parse(csv, {
+            header: true,
+            delimiter: ",",
+            complete: (result) => resolve(result.data),
+            error: (error) => reject(error),
+          });
+        });
+      } else if (selectedFile.name.endsWith(".csv")) {
+        jsonData = await new Promise((resolve, reject) => {
+          Papa.parse(selectedFile, {
+            header: true,
+            complete: (results) => resolve(results.data),
+            error: (error) => reject(error),
+          });
+        });
+      } else {
+        toast.error(
+          "Unsupported file type. Please upload a .csv, .xlsx, or .xls file."
+        );
+        setIsLoading(false);
+        return;
+      }
+
+      // Validate jsonData
+      if (!jsonData || jsonData.length === 0) {
+        toast.error("No valid data found in the file.");
+        setIsLoading(false);
+        return;
+      }
+
+      const res = await api.post("/api/leads", jsonData, {
+        headers: {
+          "Content-Type": "application/json",
+        },
       });
-      const dataBlob = new Blob([excelBuffer], {
-        type: "application/octet-stream",
-      });
-      const url = URL.createObjectURL(dataBlob);
-      const link = document.createElement("a");
-      link.href = url;
-      link.download = filename + ".xlsx";
-      link.click();
-      URL.revokeObjectURL(url);
-    };
+
+      if (res.status === 200) {
+        toast.success("File uploaded successfully!");
+        setSelectedFile(null); // Clear state
+        fileInputRef.current.value = ""; // Reset file input
+      } else {
+        toast.error(`Upload failed: ${res.status} - ${res.statusText}`);
+      }
+    } catch (error) {
+      toast.error(`Error processing file: ${error.message}`);
+      console.error("Upload error:", error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
 
   
+      const csv = Papa.unparse(savedLeads, {
+        header: true,
+        delimiter: ",",
+        newline: "\r\n",
+      });
   
+      const convertCvsToXlsx = (csvData, filename) => {
+        const workbook = XLSX.read(csvData, { type: "string" });
+        const worksheet = workbook.Sheets[workbook.SheetNames[0]];
+        const excelBuffer = XLSX.write(workbook, {
+          bookType: "xlsx",
+          type: "array",
+        });
+        const dataBlob = new Blob([excelBuffer], {
+          type: "application/octet-stream",
+        });
+        const url = URL.createObjectURL(dataBlob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = filename + ".xlsx";
+        link.click();
+        URL.revokeObjectURL(url);
+      };
   
   return (
     <div className="min-h-screen justify-start mr-6 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 px-4 py-8">
       <div className="max-w-7xl mx-auto">
-        <div className="max-w-4xl mx-auto mb-8">
-          <button
-            onClick={() => setShowModal(true)}
-            className="w-full bg-blue-500 text-white py-4 px-8 rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all duration-300 font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center gap-3">
-            <Plus className="w-6 h-6" />
-            {editingId ? "  Edit Travel Lead" : "Add New Travel Lead"}
-          </button>
-          <button
-            onClick={() => convertCvsToXlsx(csv, "user")}
-            className="flex items-center gap-2 mb-4 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors">
-            <Download className="w-4 h-4" />
-            Download User data
-          </button>
+        <div className="flex justify-between align-middle">
+          <div className="max-w-4xl mb-8 ">
+            <button
+              onClick={() => setShowModal(true)}
+              className="w-full bg-blue-500 text-white py-4 px-8 rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all duration-300 font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center gap-3">
+              <Plus className="w-6 h-6" />
+              {editingId ? "  Edit Travel Lead" : "Add New Travel Lead"}
+            </button>
+          </div>
+          <div className="flex align-middle justify-center">
+            <form onSubmit={handleSubmitUploadData} className="">
+              <input
+                type="file"
+                id="fileInput"
+                accept=".csv, .xlsx, .xls"
+                ref={fileInputRef}
+                onChange={handleOnChange}
+                className="w-20 border"
+                aria-label="Select CSV or Excel file"
+              />
+              <button
+                type="submit"
+                disabled={isLoading}
+                className="rounded bg-blue-500 px-4 py-2 text-white disabled:bg-gray-400 hover:bg-gradient-to-r hover:from-blue-700 hover:to-purple-700">
+                {isLoading ? "Uploading..." : "Upload"}
+              </button>
+              <p className="text-sm text-gray-500 text-center">
+                File must be in csv, xlsx or xls{" "}
+              </p>
+            </form>
+            <div className="">
+              <button
+                onClick={() => convertCvsToXlsx(csv, "Purchased Leads")}
+                className="flex items-center gap-2 mb-4 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors">
+                <Download className="w-4 h-4" />
+                Download Filtered Leads
+              </button>
+            </div>
+          </div>
         </div>
         {showModal && (
           <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4 overflow-y-auto">

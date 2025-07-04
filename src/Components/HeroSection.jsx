@@ -3,23 +3,23 @@ import { Heart, Key } from 'lucide-react';
 
 const HeroSection = () => {
   return (
-    <section className="bg-[#f0f8ff] py-12 px-6 md:px-16">
+    <section className="bg-[#CFFFE2] py-12 px-6 md:px-16">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10">
-        
         {/* Left Content */}
         <div className="md:w-1/2 text-center md:text-left">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mt-6">
-            Begin Your Journey <br /> With <span className="text-blue-500">BeginYatra</span>
+            Begin Your Journey <br /> With{" "}
+            <span className="text-bl">Tour & Travels</span>
           </h1>
           <p className="text-gray-600 mt-4 text-lg">
-            Discover amazing destinations, create unforgettable memories, and travel
-            with confidence. Your perfect trip starts here.
+            Discover amazing destinations, create unforgettable memories, and
+            travel with confidence. Your perfect trip starts here.
           </p>
           <div className="mt-6 flex flex-col sm:flex-row justify-center md:justify-start gap-4">
-            <button className="px-6 py-3 border border-blue-500 bg-blue-400 text-white font-semibold rounded-md hover:bg-orange-400  transition">
+            <button className="px-6 py-3 border border-blue-500 bg-blue-400 text-white font-semibold rounded-md hover:bg-[#A2D5C6]  transition">
               Start Your Journey
             </button>
-            <button className="px-6 py-3 border border-blue-500 text-blue-500 hover:bg-blue-400 hover:text-white font-semibold rounded-md hover:bg-blue-50 transition">
+            <button className="px-6 py-3 border border-blue-500 text-blue-500 hover:bg-blue-600 hover:text-white font-semibold rounded-md hover:bg-blue-50 transition">
               Explore Destinations
             </button>
           </div>

@@ -74,9 +74,22 @@ const UserCard = () => {
   const debouncedFilters = useDebounce(filters, 300);
 
   const getAllUser = async () => {
-    const response = await api.get("/api/auth/users");
-    setTotalUsers(response.data.data.docs || []);
-    console.log("Fetched Users:", response.data.data.docs);
+    
+    try {
+      const response = await api.get("/api/auth/downloadUserList", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      if (response.status === 200) {
+        setTotalUsers(response.data || []);
+        console.log("Fetched Users:", response.data);
+      } else {
+        throw new Error("Failed to fetch users");
+      }
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const statusColourMap = {
@@ -154,7 +167,6 @@ const UserCard = () => {
     link.click();
     URL.revokeObjectURL(url);
   };
-
 
   // filter
   const handleFilterChange = (e) => {

@@ -21,7 +21,9 @@ const Navbar = () => {
         <div className="flex justify-between items-center">
           {/* Logo on the left */}
           <Link to="/" className="flex items-center space-x-2">
-            <img src="/Logo.png" alt="Logo" className="h-14 w-40" />
+            {/* <img src="/Logo.png" alt="Logo" className="h-14 w-40" />
+             */}
+            <span className=" text-lg font-bold ">Tour & Travels</span>
           </Link>
 
           {/* Desktop Navigation + Buttons on the right */}
@@ -29,26 +31,22 @@ const Navbar = () => {
             {/* Navigation Links */}
             <Link
               to="/"
-              className="text-gray-700 hover:text-blue-600 transition-colors duration-200"
-            >
+              className="text-gray-700 hover:text-blue-600 transition-colors duration-200">
               Home
             </Link>
             <Link
               to="/destinations"
-              className="text-gray-700 hover:text-blue-600 transition-colors duration-200"
-            >
+              className="text-gray-700 hover:text-blue-600 transition-colors duration-200">
               Destinations
             </Link>
             <Link
               to="/about"
-              className="text-gray-700 hover:text-blue-600 transition-colors duration-200"
-            >
+              className="text-gray-700 hover:text-blue-600 transition-colors duration-200">
               About
             </Link>
             <Link
               to="/contact"
-              className="text-gray-700 hover:text-blue-600 transition-colors duration-200"
-            >
+              className="text-gray-700 hover:text-blue-600 transition-colors duration-200">
               Contact
             </Link>
 
@@ -56,8 +54,7 @@ const Navbar = () => {
             {user ? (
               <Link
                 to={"/dashboard"}
-                className="text-gray-700 hover:text-blue-600 transition-colors duration-200"
-              >
+                className="text-gray-700 hover:text-blue-600 transition-colors duration-200">
                 Go to dashboard
               </Link>
             ) : (
@@ -81,8 +78,7 @@ const Navbar = () => {
             <button
               onClick={toggleMenu}
               className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500 transition-colors duration-200"
-              aria-expanded="false"
-            >
+              aria-expanded="false">
               <span className="sr-only">Open main menu</span>
               {/* Hamburger Icon */}
               <svg
@@ -91,8 +87,7 @@ const Navbar = () => {
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
-                aria-hidden="true"
-              >
+                aria-hidden="true">
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -107,8 +102,7 @@ const Navbar = () => {
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
-                aria-hidden="true"
-              >
+                aria-hidden="true">
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -127,29 +121,25 @@ const Navbar = () => {
             <Link
               to="/"
               className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-100 transition-colors duration-200"
-              onClick={closeMenu}
-            >
+              onClick={closeMenu}>
               Home
             </Link>
             <Link
               to="/destinations"
               className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-100 transition-colors duration-200"
-              onClick={closeMenu}
-            >
+              onClick={closeMenu}>
               Destinations
             </Link>
             <Link
               to="/about"
               className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-100 transition-colors duration-200"
-              onClick={closeMenu}
-            >
+              onClick={closeMenu}>
               About
             </Link>
             <Link
               to="/contact"
               className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-100 transition-colors duration-200"
-              onClick={closeMenu}
-            >
+              onClick={closeMenu}>
               Contact
             </Link>
 

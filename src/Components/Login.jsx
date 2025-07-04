@@ -54,15 +54,14 @@ const Login = () => {
           Welcome back
         </h1>
         <h2 className="text-center text-gray-600 mt-2 mb-6">
-          Log in to your Begin Yatra account
+          Log in to your Tour & Travels account
         </h2>
 
         <form className="space-y-4">
           <div>
             <label
               htmlFor="email"
-              className="block text-sm font-medium text-gray-700"
-            >
+              className="block text-sm font-medium text-gray-700">
               Email or Phone
             </label>
             <input
@@ -79,8 +78,7 @@ const Login = () => {
           <div>
             <label
               htmlFor="password"
-              className="block text-sm font-medium text-gray-700"
-            >
+              className="block text-sm font-medium text-gray-700">
               Password
             </label>
             <input
@@ -97,8 +95,7 @@ const Login = () => {
           <div className="text-right">
             <Link
               to={"/forgot-password"}
-              className="text-sm text-blue-600 hover:underline"
-            >
+              className="text-sm text-blue-600 hover:underline">
               Forgot password?
             </Link>
           </div>
@@ -107,8 +104,7 @@ const Login = () => {
             type="submit"
             onClick={handleLogin}
             disabled={isLoading}
-            className="w-full disabled:bg-blue-300 bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition"
-          >
+            className="w-full disabled:bg-blue-300 bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition">
             Sign In
           </button>
         </form>
@@ -117,8 +113,7 @@ const Login = () => {
           Don't have an account?{" "}
           <Link
             to="/auth/signup"
-            className="text-blue-600 font-medium hover:underline"
-          >
+            className="text-blue-600 font-medium hover:underline">
             Sign up
           </Link>
         </p>

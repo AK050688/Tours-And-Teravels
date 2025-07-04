@@ -57,8 +57,7 @@ const AddNewUserModal = ({ show, onClose, getUsers, pagination }) => {
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-3 right-4 text-gray-500 hover:text-gray-700 text-2xl"
-        >
+          className="absolute top-3 right-4 text-gray-500 hover:text-gray-700 text-2xl">
           &times;
         </button>
 
@@ -66,7 +65,7 @@ const AddNewUserModal = ({ show, onClose, getUsers, pagination }) => {
           Add New User
         </h1>
         <h2 className="text-center text-gray-600 mt-2 mb-6 text-sm sm:text-base">
-          Join Begin Yatra and start your journey
+          Join Tour & Travels and start your journey
         </h2>
 
         <form className="space-y-6" onSubmit={signupHandler}>
@@ -115,8 +114,7 @@ const AddNewUserModal = ({ show, onClose, getUsers, pagination }) => {
           <div>
             <label
               htmlFor="kyc"
-              className="block text-sm font-medium text-gray-700"
-            >
+              className="block text-sm font-medium text-gray-700">
               KYC Document
             </label>
             <input
@@ -133,8 +131,7 @@ const AddNewUserModal = ({ show, onClose, getUsers, pagination }) => {
 
           <button
             type="submit"
-            className="w-full bg-blue-600 text-white py-3 rounded-md hover:bg-blue-700 transition text-lg font-semibold"
-          >
+            className="w-full bg-blue-600 text-white py-3 rounded-md hover:bg-blue-700 transition text-lg font-semibold">
             Add New User
           </button>
         </form>

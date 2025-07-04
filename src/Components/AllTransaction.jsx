@@ -9,6 +9,9 @@ import { useDebounce } from "@uidotdev/usehooks";
 
 import Papa from "papaparse";
 import * as XLSX from "xlsx";
+import { selectAccessToken } from "../store/userSlice";
+import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
 
 const defaultPagination = {
   page: 1,
@@ -26,10 +29,10 @@ const AllTransactions = () => {
   const [selectedMethod, setSelectedMethod] = useState("All");
   const [selectedDateRange, setSelectedDateRange] = useState("All");
   const [pagination, setPagination] = useState(defaultPagination);
-
+const [transaction, setTransaction] = useState([])
   const debouncedQuery = useDebounce(searchQuery, 300);
 
-  // const token = useSelector((state) => state?.auth?.data?.accessToken);
+  const token = useSelector(selectAccessToken);
 
   // const allTransactionsUser = async () => {
   //   console.log("😢😢😢😢", token);
@@ -96,6 +99,7 @@ const AllTransactions = () => {
 
   useEffect(() => {
     getAllTransactions();
+    getAllTransactionsWithOutPagination();
   }, [
     pagination.page,
     pagination.limit,
@@ -160,30 +164,55 @@ const AllTransactions = () => {
   // };
 
 
-    const csv = Papa.unparse(transactions, {
-      header: true,
-      delimiter: ",",
-      newline: "\r\n",
-    });
-  
-    const convertCvsToXlsx = (csvData, filename) => {
-      const workbook = XLSX.read(csvData, { type: "string" });
-      const worksheet = workbook.Sheets[workbook.SheetNames[0]];
-      const excelBuffer = XLSX.write(workbook, {
-        bookType: "xlsx",
-        type: "array",
-      });
-      const dataBlob = new Blob([excelBuffer], {
-        type: "application/octet-stream",
-      });
-      const url = URL.createObjectURL(dataBlob);
-      const link = document.createElement("a");
-      link.href = url;
-      link.download = filename + ".xlsx";
-      link.click();
-      URL.revokeObjectURL(url);
+  const getAllTransactionsWithOutPagination = async () => {
+
+      setLoading(true);
+      try {
+        const res = await api.get(
+          "/api/transactions/downloadAllTransactionsForAdmin",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+
+        if (res.data.statusCode === 200) {
+          setTransaction(res?.data?.data);
+        } else {
+          toast.error(res.data.messsage);
+        }
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setLoading(false);
+      }
     };
-  
+
+
+  const csv = Papa.unparse(transaction, {
+    header: true,
+    delimiter: ",",
+    newline: "\r\n",
+  });
+
+  const convertCvsToXlsx = (csvData, filename) => {
+    const workbook = XLSX.read(csvData, { type: "string" });
+    const worksheet = workbook.Sheets[workbook.SheetNames[0]];
+    const excelBuffer = XLSX.write(workbook, {
+      bookType: "xlsx",
+      type: "array",
+    });
+    const dataBlob = new Blob([excelBuffer], {
+      type: "application/octet-stream",
+    });
+    const url = URL.createObjectURL(dataBlob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = filename + ".xlsx";
+    link.click();
+    URL.revokeObjectURL(url);
+  };
 
   const formatDateRange = (type) => {
     if (type === "All") {
@@ -254,7 +283,7 @@ const AllTransactions = () => {
         </div>
 
         <div className="bg-white p-6 rounded-lg shadow-md mb-6">
-          <div className="flex flex-wrap gap-4 items-center justify-between">
+          <div className="flex flex-wrap  items-center justify-between">
             {/* Search */}
             <div className="flex items-center border rounded px-2 py-2 w-full sm:w-auto">
               <Search className="w-4 h-4 text-gray-500 mr-2" />
@@ -323,7 +352,7 @@ const AllTransactions = () => {
               <option value="wallet">Wallet</option>
               <option value="plan">Plan</option>
             </select> */}
-          
+
             <button
               onClick={getAllTransactions}
               className={`flex items-center gap-1 text-sm px-4 py-2 rounded cursor-pointer ${
@@ -356,9 +385,10 @@ const AllTransactions = () => {
             </button>
             <button
               onClick={() => convertCvsToXlsx(csv, "transactions")}
+              disabled={loading}
               className="flex items-center gap-2 px-2 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors">
               <Download className="w-4 h-4" />
-              Download Transactions
+              {loading?"Loading... ": "Download Transactions"}
             </button>
           </div>
         </div>
@@ -366,9 +396,7 @@ const AllTransactions = () => {
         <div className="bg-white p-6 rounded-lg shadow-md">
           <div className="flex justify-between items-center mb-4">
             <h2 className="text-lg font-semibold">Transaction History</h2>
-            {/* <button className="flex items-center text-green-600 text-sm border border-green-500 px-3 py-1.5 rounded hover:bg-green-100">
-              <Download className="w-4 h-4 mr-1" /> Export Data
-            </button> */}
+            
           </div>
 
           {loading ? (
@@ -533,8 +561,7 @@ const Card = ({ title, value, color }) => {
     <div
       className={`${
         colorMap[color] || "bg-gray-100 text-gray-800"
-      } rounded-lg p-4 shadow-sm`}
-    >
+      } rounded-lg p-4 shadow-sm`}>
       <div className="text-sm font-medium mb-1">{title}</div>
       <div className="text-xl font-bold">{value}</div>
     </div>

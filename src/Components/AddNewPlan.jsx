@@ -338,7 +338,7 @@ const AddNewPlan = () => {
           key,
           amount: order.amount,
           currency: order.currency,
-          name: "BeginYatra",
+          name: "Tour & Travels",
           description: selectedPlan.description,
           order_id: order.id,
           handler: function (response) {
