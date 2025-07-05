@@ -2,7 +2,7 @@ import React from "react";
 
 const FormSection = () => {
   return (
-    <section className="bg-[#f0f8ff] py-16 px-4 md:px-12">
+    <section className="bg-[#FFF1EE] py-16 px-4 md:px-12 ">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-12">
         {/* Left Div - Call to Action */}
         <div className="md:w-1/2 flex flex-col justify-center">
@@ -13,7 +13,7 @@ const FormSection = () => {
             Sign up today and get exclusive offers on your first booking. Our
             travel experts are ready to help you plan your perfect trip.
           </p>
-          <button className="px-6 py-3 border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white rounded-md hover:bg-blue-50 transition w-fit">
+          <button className="px-6 py-3 border border-[#F06543] text-[#F06543] hover:text-white rounded-md hover:bg-[#F06543] transition w-fit">
             Contact Us
           </button>
         </div>
@@ -27,10 +27,12 @@ const FormSection = () => {
             Fill out the form below to travel anywhere in the world.
           </p>
 
-          <form className="bg-white rounded-lg shadow p-6 space-y-4">
+          <form className="bg-white rounded-lg p-6 space-y-4 shadow-2xl border border-[#F06543]">
             <div>
-              <h3 className="text-xl font-semibold">Tour Information</h3>
-              <p className="text-sm text-gray-500">
+              <h3 className="text-xl text-black font-semibold">
+                Tour Information
+              </h3>
+              <p className="text-sm text-black">
                 Enter the details of the new travel
               </p>
             </div>
@@ -65,10 +67,7 @@ const FormSection = () => {
             </div>
 
             <div className="flex gap-4">
-              <input
-                type="date"
-                className="w-1/2 border rounded p-2"
-              />
+              <input type="date" className="w-1/2 border rounded p-2" />
               <input
                 type="number"
                 placeholder="1"
@@ -113,8 +112,7 @@ const FormSection = () => {
 
             <button
               type="submit"
-              className="bg-blue-500 text-white-500 px-6 py-2 rounded hover:bg-blue-600 transition"
-            >
+              className="bg-white text-[#F06543] border-[#F06543] border px-6 py-2 rounded hover:bg-[#F06543] hover:text-white transition">
               Submit
             </button>
           </form>

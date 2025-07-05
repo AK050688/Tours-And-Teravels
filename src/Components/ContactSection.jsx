@@ -31,11 +31,11 @@ export default function ContactSection() {
               </label>
               <textarea
                 rows="5"
-                className="mt-1 w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-400"></textarea>
+                className="mt-1 w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-text-[#f06543]"></textarea>
             </div>
             <button
               type="submit"
-              className="w-full bg-sky-400 text-white font-semibold py-2 rounded-md hover:bg-sky-500 transition">
+              className="w-full bg-white border border-[#f06543] text-[#f06543] hover:text-white font-semibold py-2 rounded-md hover:bg-[#f06543] transition">
               Submit
             </button>
           </form>
@@ -67,11 +67,11 @@ export default function ContactSection() {
 
           <div className="mt-6">
             <h4 className="font-semibold mb-2">Follow Us</h4>
-            <div className="flex gap-4 text-sky-400 text-xl">
-              <FaFacebookF className="hover:text-sky-600 cursor-pointer" />
-              <FaTwitter className="hover:text-sky-600 cursor-pointer" />
-              <FaInstagram className="hover:text-sky-600 cursor-pointer" />
-              <FaLinkedinIn className="hover:text-sky-600 cursor-pointer" />
+            <div className="flex gap-4 text-[#f06543] text-xl">
+              <FaFacebookF className="hover:text-[#f06543] cursor-pointer" />
+              <FaTwitter className="hover:text-[#f06543] cursor-pointer" />
+              <FaInstagram className="hover:text-[#f06543] cursor-pointer" />
+              <FaLinkedinIn className="hover:text-[#f06543] cursor-pointer" />
             </div>
           </div>
         </div>

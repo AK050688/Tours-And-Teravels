@@ -4,7 +4,7 @@ import React from 'react';
 const WelcomeSection = () => {
   return (
     <>
-      <section className="bg-gradient-to-r from-blue-100 via-white to-blue-100 py-16 px-4 md:px-8">
+      <section className="bg-gradient-to-r from-[#f06543] via-white to-[#f09d51] py-16 px-4 md:px-8">
         <div className="max-w-5xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             Welcome to Tour & Travels

@@ -29,7 +29,7 @@ const AboutSection = () => {
       </div>
 
       {/* Bottom Section: Mission and Vision */}
-      <div className="bg-blue-50 py-10 px-4 md:px-10">
+      <div className="bg-[#FFF1EE] py-10 px-4 md:px-10">
         <div className="flex flex-col md:flex-row justify-center items-center">
           {/* Mission */}
           <div className="w-full md:w-1/2 mb-6 md:mb-0 md:pr-10 text-center md:text-left">

@@ -2,24 +2,24 @@
 export default function DestinationsSection() {
   const destinations = [
     {
-      name: 'Manali',
-      description: 'Explore the breathtaking Himalayas in Manali.',
-      image: 'Manali.png',
+      name: "Manali",
+      description: "Explore the breathtaking Himalayas in Manali.",
+      image: "Manali.jpg",
     },
     {
-      name: 'Goa',
-      description: 'Enjoy the sandy beaches and vibrant nightlife of Goa.',
-      image: 'Goa.png',
+      name: "Goa",
+      description: "Enjoy the sandy beaches and vibrant nightlife of Goa.",
+      image: "Goa.jpg",
     },
     {
-      name: 'Kerala',
-      description: 'Relax in the tranquil backwaters of Kerala.',
-      image: 'Kerala.png',
+      name: "Kerala",
+      description: "Relax in the tranquil backwaters of Kerala.",
+      image: "Kerala.png",
     },
     {
-      name: 'Jaipur',
-      description: 'Step into history in the Pink City of Jaipur.',
-      image: 'Jaipur.png',
+      name: "Rajasthan",
+      description: "Step into history in the Pink City of Jaipur.",
+      image: "Rajasthan.jpg",
     },
   ];
 

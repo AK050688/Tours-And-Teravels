@@ -342,7 +342,7 @@ const AdminDashboard = () => {
         <div className="flex items-center gap-2">
           <p className="text-base md:text-xl">Admin Name:</p>
           <span
-            className="text-xl text-blue-400 underline capitalize cursor-pointer"
+            className="text-xl text-[#f06543] underline capitalize cursor-pointer"
             onClick={() => navigate("/dashboard/admin-profile")}>
             {adminUser?.name || "N/A"}
           </span>
@@ -361,7 +361,7 @@ const AdminDashboard = () => {
         ) : error.dashboard ? (
           <p className="text-red-600 text-sm sm:text-base">{error.dashboard}</p>
         ) : (
-          <div className="bg-white p-4 rounded-lg shadow border-l-4 border-blue-500">
+          <div className="bg-white p-4 rounded-lg shadow border-l-4 border-[#f06543]">
             <div style={{ height: "300px" }}>
               <Bar
                 data={dashboardChart.data}
@@ -399,13 +399,13 @@ const AdminDashboard = () => {
               </div>
             </div>
             {/* Status Chart */}
-            <div className="bg-white p-4 rounded-lg shadow border-l-4 border-blue-500">
+            <div className="bg-white p-4 rounded-lg shadow border-l-4 border-[#f06543]">
               <div style={{ height: "250px" }}>
                 <Pie data={statusChart.data} options={statusChart.options} />
               </div>
             </div>
             {/* Trip Type Chart */}
-            <div className="bg-white p-4 rounded-lg shadow border-l-4 border-blue-500">
+            <div className="bg-white p-4 rounded-lg shadow border-l-4 border-[#f06543]">
               <div style={{ height: "250px" }}>
                 <Doughnut
                   data={tripTypeChart.data}
@@ -431,7 +431,7 @@ const AdminDashboard = () => {
             {recentLeads.map((lead, index) => (
               <div
                 key={index}
-                className="bg-white p-3 sm:p-4 rounded-lg shadow border-l-4 border-blue-500">
+                className="bg-white p-3 sm:p-4 rounded-lg shadow border-l-4 border-[#f06543]">
                 <h3 className="text-lg sm:text-xl font-semibold text-gray-800 capitalize">
                   {lead.name || "N/A"}
                 </h3>

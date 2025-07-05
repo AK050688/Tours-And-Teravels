@@ -38,7 +38,7 @@ export default function WhatDrivesUs() {
         {cards.map((card, idx) => (
           <div
             key={idx}
-            className={`${card.bg} p-8 rounded-xl shadow-sm border text-center transition hover:shadow-md`}
+            className={`${card.bg} p-8 rounded-xl shadow-sm border text-center hover:border hover:border-[#f06543] transition hover:shadow-md`}
           >
             <div className="flex justify-center mb-4">{card.icon}</div>
             <h3 className="text-lg font-semibold text-gray-800 mb-2">

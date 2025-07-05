@@ -16,14 +16,16 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-white shadow-md py-4 sticky top-0 z-50 w-full">
+    <nav className="bg-[#e8e9eb] shadow-md py-4 sticky top-0 z-50 w-full">
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex justify-between items-center">
           {/* Logo on the left */}
           <Link to="/" className="flex items-center space-x-2">
             {/* <img src="/Logo.png" alt="Logo" className="h-14 w-40" />
              */}
-            <span className=" text-lg font-bold ">Tour & Travels</span>
+            <span className=" text-lg font-bold text-[#f06543] ">
+              Tour&Travels
+            </span>
           </Link>
 
           {/* Desktop Navigation + Buttons on the right */}
@@ -31,22 +33,22 @@ const Navbar = () => {
             {/* Navigation Links */}
             <Link
               to="/"
-              className="text-gray-700 hover:text-blue-600 transition-colors duration-200">
+              className="text-[#313638] hover:text-[#F06543] transition-colors duration-200">
               Home
             </Link>
             <Link
               to="/destinations"
-              className="text-gray-700 hover:text-blue-600 transition-colors duration-200">
+              className="text-[#313638] hover:text-[#F06543] transition-colors duration-200">
               Destinations
             </Link>
             <Link
               to="/about"
-              className="text-gray-700 hover:text-blue-600 transition-colors duration-200">
+              className="text-[#313638] hover:text-[#F06543] transition-colors duration-200">
               About
             </Link>
             <Link
               to="/contact"
-              className="text-gray-700 hover:text-blue-600 transition-colors duration-200">
+              className="text-[#313638] hover:text-[#F06543] transition-colors duration-200">
               Contact
             </Link>
 
@@ -54,18 +56,18 @@ const Navbar = () => {
             {user ? (
               <Link
                 to={"/dashboard"}
-                className="text-gray-700 hover:text-blue-600 transition-colors duration-200">
+                className="text-[#313638] hover:text-[#F06543] transition-colors duration-200">
                 Go to dashboard
               </Link>
             ) : (
               <div className="flex items-center space-x-4">
                 <Link to="/auth/login">
-                  <button className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ring-offset-white disabled:pointer-events-none disabled:opacity-50 border border-blue-600 bg-white text-blue-600 hover:bg-blue-500 hover:text-white h-10 px-4 py-2">
+                  <button className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#F06543] focus:ring-offset-2 ring-offset-white disabled:pointer-events-none disabled:opacity-50 border border-[#F06543] bg-[#E8E9EB] text-[#F06543] hover:bg-[#F06543] hover:text-[#E8E9EB] h-10 px-4 py-2">
                     Login
                   </button>
                 </Link>
                 <Link to="/auth/signup">
-                  <button className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors duration-200 bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 h-10 px-4 py-2">
+                  <button className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors duration-200 bg-[#F06543] text-[#e8e9eb] hover:bg-[#F06543] focus:outline-none focus:ring-2 focus:ring-[#F06543] focus:ring-offset-2 h-10 px-4 py-2">
                     Register
                   </button>
                 </Link>
@@ -77,7 +79,7 @@ const Navbar = () => {
           <div className="md:hidden">
             <button
               onClick={toggleMenu}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500 transition-colors duration-200"
+              className="inline-flex items-center justify-center p-2 rounded-md text-[#F06543] hover:text-[#F06543] hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[#F06543] transition-colors duration-200"
               aria-expanded="false">
               <span className="sr-only">Open main menu</span>
               {/* Hamburger Icon */}
@@ -120,25 +122,25 @@ const Navbar = () => {
             {/* Mobile Navigation Links */}
             <Link
               to="/"
-              className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-100 transition-colors duration-200"
+              className="block px-3 py-2 rounded-md text-base font-medium text-[#313638] hover:text-[#F06543] hover:bg-gray-100 transition-colors duration-200"
               onClick={closeMenu}>
               Home
             </Link>
             <Link
               to="/destinations"
-              className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-100 transition-colors duration-200"
+              className="block px-3 py-2 rounded-md text-base font-medium text-[#313638] hover:text-[#F06543] hover:bg-gray-100 transition-colors duration-200"
               onClick={closeMenu}>
               Destinations
             </Link>
             <Link
               to="/about"
-              className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-100 transition-colors duration-200"
+              className="block px-3 py-2 rounded-md text-base font-medium text-[#313638] hover:text-[#F06543] hover:bg-gray-100 transition-colors duration-200"
               onClick={closeMenu}>
               About
             </Link>
             <Link
               to="/contact"
-              className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-100 transition-colors duration-200"
+              className="block px-3 py-2 rounded-md text-base font-medium text-[#313638] hover:text-[#F06543] hover:bg-gray-100 transition-colors duration-200"
               onClick={closeMenu}>
               Contact
             </Link>
@@ -146,12 +148,12 @@ const Navbar = () => {
             {/* Mobile Buttons */}
             <div className="flex flex-col gap-2 py-2">
               <Link to="/auth/login" onClick={closeMenu}>
-                <button className="w-full inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ring-offset-white disabled:pointer-events-none disabled:opacity-50 border border-blue-600 bg-white text-blue-600 hover:bg-blue-500 hover:text-white h-10 px-4 py-2">
+                <button className="w-full inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#f06543] focus:ring-offset-2 ring-offset-white disabled:pointer-events-none disabled:opacity-50 border border-[#f09d51] bg-white text-[#f09d51] hover:bg-[#f09d51] hover:text-white h-10 px-4 py-2">
                   Login
                 </button>
               </Link>
               <Link to="/auth/signup" onClick={closeMenu}>
-                <button className="w-full inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors duration-200 bg-blue-400 text-white hover:bg-orange-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 h-10 px-4 py-2">
+                <button className="w-full inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors duration-200 bg-[#f06543] text-white hover:bg-[#f06543] focus:outline-none focus:ring-2 focus:ring-[#f06543] focus:ring-offset-2 h-10 px-4 py-2">
                   Register
                 </button>
               </Link>
