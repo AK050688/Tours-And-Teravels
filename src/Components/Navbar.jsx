@@ -2,18 +2,69 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { selectUser } from "../store/userSlice";
+import { BadgePercent, Lock, Luggage, User } from "lucide-react";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isAgentDropdownOpen, setIsAgentDropdownOpen] = useState(false);
   const user = useSelector(selectUser);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+    setIsAgentDropdownOpen(false); // Close agent dropdown when main menu toggles
+  };
+
+  const toggleAgentDropdown = () => {
+    setIsAgentDropdownOpen(!isAgentDropdownOpen);
   };
 
   const closeMenu = () => {
     setIsMenuOpen(false);
+    setIsAgentDropdownOpen(false);
   };
+
+  const agentMenuItems = [
+    {
+      path: "/agent/join",
+      label: "Join For Free",
+      icon: <User className="w-4 h-4  hover:text-white" />,
+    },
+    {
+      path: "/auth/login",
+      label: "Sign In",
+      icon: <Lock className="w-4 h-4  hover:text-white" />,
+    },
+    {
+      path: "/agent/travel-leads",
+      label: "Travel Leads",
+      icon: <Luggage className="w-4 h-4  hover:text-white" />,
+    },
+    {
+      path: "/agent/advertise",
+      label: "Advertise with us",
+      icon: (
+        <BadgePercent className="w-4 h-4  hover:text-white" />
+      ),
+    },
+  ];
+
+  const loginAgentMenuItems = [
+    {
+      path: "/agent/join",
+      label: "Join For Free",
+      icon: <User className="w-4 h-4  hover:text-white" />,
+    },
+    {
+      path: "/agent/travel-leads",
+      label: "Travel Leads",
+      icon: <Luggage className="w-4 h-4  hover:text-white" />,
+    },
+    {
+      path: "/agent/advertise",
+      label: "Advertise with us",
+      icon: <BadgePercent className="w-4 h-4  hover:text-white" />,
+    },
+  ];
 
   return (
     <nav className="bg-[#e8e9eb] shadow-md py-4 sticky top-0 z-50 w-full">
@@ -21,9 +72,7 @@ const Navbar = () => {
         <div className="flex justify-between items-center">
           {/* Logo on the left */}
           <Link to="/" className="flex items-center space-x-2">
-            {/* <img src="/Logo.png" alt="Logo" className="h-14 w-40" />
-             */}
-            <span className=" text-lg font-bold text-[#f06543] ">
+            <span className="text-lg font-bold text-[#f06543]">
               Tour&Travels
             </span>
           </Link>
@@ -52,25 +101,83 @@ const Navbar = () => {
               Contact
             </Link>
 
-            {/* Buttons */}
+            {/* Agent Travel Zone Dropdown */}
             {user ? (
-              <Link
-                to={"/dashboard"}
-                className="text-[#313638] hover:text-[#F06543] transition-colors duration-200">
-                Go to dashboard
-              </Link>
+              <>
+                <Link
+                  to="/dashboard"
+                  className="text-[#313638] hover:text-[#F06543] transition-colors duration-200">
+                  Go to dashboard
+                </Link>
+                <div className="relative">
+                  <button
+                    onClick={toggleAgentDropdown}
+                    className="text-[#313638] hover:text-[#F06543] transition-colors duration-200 flex items-center">
+                    Agent Travel Zone
+                    <svg
+                      className="ml-2 h-4 w-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M19 9l-7 7-7-7"
+                      />
+                    </svg>
+                  </button>
+                  {isAgentDropdownOpen && (
+                    <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50">
+                      {loginAgentMenuItems.map((item) => (
+                        <Link
+                          key={item.path}
+                          to={item.path}
+                          className="flex items-center px-4 py-2 text-sm text-[#313638] hover:bg-[#F06543] hover:text-white transition-colors duration-200"
+                          onClick={closeMenu}>
+                          {item.icon}
+                          <span className="ml-2">{item.label}</span>
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </>
             ) : (
-              <div className="flex items-center space-x-4">
-                <Link to="/auth/login">
-                  <button className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#F06543] focus:ring-offset-2 ring-offset-white disabled:pointer-events-none disabled:opacity-50 border border-[#F06543] bg-[#E8E9EB] text-[#F06543] hover:bg-[#F06543] hover:text-[#E8E9EB] h-10 px-4 py-2">
-                    Login
-                  </button>
-                </Link>
-                <Link to="/auth/signup">
-                  <button className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors duration-200 bg-[#F06543] text-[#e8e9eb] hover:bg-[#F06543] focus:outline-none focus:ring-2 focus:ring-[#F06543] focus:ring-offset-2 h-10 px-4 py-2">
-                    Register
-                  </button>
-                </Link>
+              <div className="relative">
+                <button
+                  onClick={toggleAgentDropdown}
+                  className="text-[#313638] hover:text-[#F06543] transition-colors duration-200 flex items-center">
+                  Agent Travel Zone
+                  <svg
+                    className="ml-2 h-4 w-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </button>
+                {isAgentDropdownOpen && (
+                  <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50">
+                    {agentMenuItems.map((item) => (
+                      <Link
+                        key={item.path}
+                        to={item.path}
+                        className="flex items-center px-4 py-2 text-sm text-[#313638] hover:bg-[#F06543] hover:text-white transition-colors duration-200"
+                        onClick={closeMenu}>
+                        {item.icon}
+                        <span className="ml-2">{item.label}</span>
+                      </Link>
+                    ))}
+                  </div>
+                )}
               </div>
             )}
           </div>
@@ -82,7 +189,6 @@ const Navbar = () => {
               className="inline-flex items-center justify-center p-2 rounded-md text-[#F06543] hover:text-[#F06543] hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[#F06543] transition-colors duration-200"
               aria-expanded="false">
               <span className="sr-only">Open main menu</span>
-              {/* Hamburger Icon */}
               <svg
                 className={`${isMenuOpen ? "hidden" : "block"} h-6 w-6`}
                 xmlns="http://www.w3.org/2000/svg"
@@ -97,7 +203,6 @@ const Navbar = () => {
                   d="M4 6h16M4 12h16M4 18h16"
                 />
               </svg>
-              {/* Close Icon */}
               <svg
                 className={`${isMenuOpen ? "block" : "hidden"} h-6 w-6`}
                 xmlns="http://www.w3.org/2000/svg"
@@ -145,19 +250,52 @@ const Navbar = () => {
               Contact
             </Link>
 
-            {/* Mobile Buttons */}
-            <div className="flex flex-col gap-2 py-2">
-              <Link to="/auth/login" onClick={closeMenu}>
-                <button className="w-full inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#f06543] focus:ring-offset-2 ring-offset-white disabled:pointer-events-none disabled:opacity-50 border border-[#f09d51] bg-white text-[#f09d51] hover:bg-[#f09d51] hover:text-white h-10 px-4 py-2">
-                  Login
-                </button>
+            {/* Mobile Agent Travel Zone */}
+            {user ? (
+              <Link
+                to="/dashboard"
+                className="block px-3 py-2 rounded-md text-base font-medium text-[#313638] hover:text-[#F06543] hover:bg-gray-100 transition-colors duration-200"
+                onClick={closeMenu}>
+                Go to dashboard
               </Link>
-              <Link to="/auth/signup" onClick={closeMenu}>
-                <button className="w-full inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors duration-200 bg-[#f06543] text-white hover:bg-[#f06543] focus:outline-none focus:ring-2 focus:ring-[#f06543] focus:ring-offset-2 h-10 px-4 py-2">
-                  Register
+            ) : (
+              <>
+                <button
+                  onClick={toggleAgentDropdown}
+                  className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-[#313638] hover:text-[#F06543] hover:bg-gray-100 transition-colors duration-200">
+                  Agent Travel Zone
+                  <svg
+                    className="inline ml-2 h-4 w-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
                 </button>
-              </Link>
-            </div>
+                {isAgentDropdownOpen && (
+                  <div className="pl-4 space-y-1">
+                    {agentMenuItems.map((item) => (
+                      <Link
+                        key={item.path}
+                        to={item.path}
+                        className="block px-3 py-2 rounded-md text-base font-medium text-[#313638] hover:text-[#F06543] hover:bg-gray-100 transition-colors duration-200"
+                        onClick={closeMenu}>
+                        <div className="flex items-center">
+                          {item.icon}
+                          <span className="ml-2">{item.label}</span>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </>
+            )}
           </div>
         </div>
       </div>

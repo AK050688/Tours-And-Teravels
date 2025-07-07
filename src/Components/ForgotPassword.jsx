@@ -12,7 +12,7 @@ const handleForgotPassword = async (e) => {
    const res = await api.post(`/api/auth/forgotPassword`, { email });
    console.log(res);
    localStorage.setItem("email", email);
-   navigate("/verify-otp")
+   navigate("/auth/verify-otp");
   } catch (error) {
     console.error("Forgot password error:", error);
     alert("Something went wrong. Please try again.");

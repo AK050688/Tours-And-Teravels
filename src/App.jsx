@@ -38,6 +38,9 @@ import ChangePassword from "./Components/ChangePassword";
 import UserProfile from "./Components/UserProfile";
 import AdminUserProfile from "./Components/AdminUserProfile";
 import DestinationDetails from "./Pages/DestinationDetails";
+import JoinForFree from "./Pages/Agent/JoinForFree";
+import TravelLeads from "./Pages/Agent/TravelLeads";
+import AdvertiseWithUs from "./Pages/Agent/AdvertiseWithUs";
 
 const adminUser = ["admin"];
 const vendorUser = ["user"];
@@ -45,15 +48,23 @@ const vendorUser = ["user"];
 const App = () => {
   return (
     <Routes>
-      <Route path="/forgot-password" element={<ForgotPassword />} />
-      <Route path="/verify-otp" element={<VerifyOTP />} />
-      <Route path="/add-new-password" element={<ChangePassword />} />
       <Route element={<Layout />}>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/destinations" element={<Destination />} />
+        <Route path="/agent/join" element={<JoinForFree />} />
+        <Route path="/agent/travel-leads" element={<TravelLeads />} />
+        <Route path="/agent/advertise" element={<AdvertiseWithUs />} />
+        <Route path="/auth">
+          <Route path="signup" element={<Signup />} />
+          <Route path="login" element={<Login />} />
+          <Route path="forgot-password" element={<ForgotPassword />} />
+          <Route path="verify-otp" element={<VerifyOTP />} />
+          <Route path="add-new-password" element={<ChangePassword />} />
+        </Route>
+
         <Route
           path="/destination/:destinationName"
           element={<DestinationDetails />}
@@ -76,10 +87,6 @@ const App = () => {
           <Route path="purchased-leads" element={<PurchaseLeads />} />
           <Route path="plans" element={<Plans />} />
         </Route>
-      </Route>
-      <Route path="/auth">
-        <Route path="signup" element={<Signup />} />
-        <Route path="login" element={<Login />} />
       </Route>
     </Routes>
   );

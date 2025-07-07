@@ -4,21 +4,6 @@ import { Search, Sparkles, Heart, PlaneTakeoff } from "lucide-react"; // Replace
 const WhyChooseSection = () => {
   return (
     <section className="w-full bg-white py-16 px-4 md:px-16">
-      {/* Search Bar */}
-      <div className="max-w-xl mx-auto mb-12">
-        <div className="flex items-center border rounded-full shadow-sm overflow-hidden px-4 py-2">
-          <Search className="text-gray-400 w-5 h-5 mr-2" />
-          <input
-            type="text"
-            placeholder="Search destinations, tours, activities..."
-            className="flex-1 outline-none text-sm bg-transparent"
-          />
-          <button className="bg-[#F06543] text-white px-4 py-1.5 rounded-full hover:bg-white hover:text-[#F06543] hover:border-[#F06543] border text-sm font-medium">
-            Search
-          </button>
-        </div>
-      </div>
-
       {/* Heading */}
       <div className="text-center mb-10">
         <h2 className="text-3xl font-bold text-gray-900 mb-2">

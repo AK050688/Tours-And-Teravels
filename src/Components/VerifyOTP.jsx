@@ -68,7 +68,7 @@ const handleVerifyOTP = async (e) => {
       otp: parseInt(finalOtp, 10), // Convert OTP string to integer
     });
     toast.success("OTP verified successfully!");
-    navigate("/add-new-password")
+    navigate("/auth/add-new-password");
     // Redirect if needed
   } catch (error) {
     console.error("OTP verification failed:", error);
