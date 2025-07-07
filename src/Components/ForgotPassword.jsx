@@ -26,41 +26,34 @@ const handleForgotPassword = async (e) => {
         <h1 className="text-3xl font-bold text-center text-black">
           Forgot Password
         </h1>
-        <h2 className="text-center text-gray-600 mt-2 mb-6">
-          
-        </h2>
+        <h2 className="text-center text-gray-600 mt-2 mb-6"></h2>
 
         <form className="space-y-4" onSubmit={handleForgotPassword}>
           <div>
             <label
               htmlFor="email"
               className="block text-sm font-medium text-gray-700">
-              Email 
+              Email
             </label>
             <input
               type="text"
               id="email"
               value={email}
               onChange={(e) => setEmail(e.target.value.trim())}
-              className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+              className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-[#F06543]  focus:border-[#F06543] "
               placeholder="you@example.com"
               required
             />
           </div>
-         
-          
+
           <button
             type="submit"
-            
-            className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition">
+            className="w-full bg-white   text-[#F06543] border border-[#F06543]  py-2 rounded-md hover:bg-[#F06543] hover:text-white  transition">
             Forgot Password
           </button>
         </form>
 
-        <p className="text-center text-sm text-gray-600 mt-6">
-          
-          
-        </p>
+        <p className="text-center text-sm text-gray-600 mt-6"></p>
       </div>
     </div>
   );

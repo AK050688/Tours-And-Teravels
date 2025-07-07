@@ -165,7 +165,7 @@ const HeroSection = () => {
   }, [carouselImages.length]);
 
   return (
-    <section className="relative py-8 sm:py-12 px-4 sm:px-6 md:px-16 overflow-hidden flex items-center min-h-screen">
+    <section className="relative py-4 sm:py-8 px-4 sm:px-6 md:px-16 overflow-hidden flex items-center min-h-[100vh]">
       {/* Carousel */}
       <div className="absolute inset-0 w-full h-full overflow-hidden z-0">
         <div

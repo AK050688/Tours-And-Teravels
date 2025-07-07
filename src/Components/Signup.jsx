@@ -93,7 +93,7 @@ const Signup = () => {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="John Doe"
-                className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-[#F06543] focus:border-[#F06543]"
                 required
               />
             </div>
@@ -110,7 +110,7 @@ const Signup = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="your@email.com"
-                className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-[#F06543] focus:border-[#F06543]"
                 required
               />
             </div>
@@ -127,7 +127,7 @@ const Signup = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
-                className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-[#F06543] focus:border-[#F06543]"
                 required
               />
             </div>
@@ -144,7 +144,7 @@ const Signup = () => {
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 placeholder="9876543210"
-                className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-[#F06543] focus:border-[#F06543]"
                 required
               />
             </div>
@@ -162,7 +162,7 @@ const Signup = () => {
                 value={companyName}
                 onChange={(e) => setCompanyName(e.target.value)}
                 placeholder="Your Company"
-                className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-[#F06543] focus:border-[#F06543]"
               />
             </div>
             <div>
@@ -177,7 +177,7 @@ const Signup = () => {
                 value={city}
                 onChange={(e) => setCity(e.target.value)}
                 placeholder="Mumbai"
-                className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-[#F06543] focus:border-[#F06543]"
               />
             </div>
           </div>
@@ -194,7 +194,7 @@ const Signup = () => {
               id="kyc"
               accept=".pdf,.jpg,.png"
               onChange={handleFileChange}
-              className="mt-1 w-full border border-gray-300 p-2 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+              className="mt-1 w-full border border-gray-300 p-2 rounded-md shadow-sm focus:ring-[#F06543] focus:border-[#F06543]"
               // required
             />
             <p className="text-xs text-gray-500 mt-1">
@@ -205,7 +205,7 @@ const Signup = () => {
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full bg-blue-600 text-white py-3 rounded-md hover:bg-blue-700 transition text-lg font-semibold">
+            className="w-full bg-white  hover:text-white text-[#F06543] border-[#F06543] border py-3 rounded-md hover:bg-[#F06543] transition text-lg font-semibold">
             {isLoading ? "Processing.." : "Register"}
           </button>
         </form>
@@ -214,7 +214,7 @@ const Signup = () => {
           Already have an account?{" "}
           <Link
             to="/auth/login"
-            className="text-blue-600 font-medium hover:underline">
+            className="text-[#F06543] font-medium hover:underline">
             Sign in
           </Link>
         </p>

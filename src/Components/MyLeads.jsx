@@ -160,7 +160,7 @@ const MyLeads = () => {
     <div className="w-full min-h-screen p-4">
       <div className="flex flex-col-reverse gap-4 sm:flex-row justify-between items-start mb-2 sm:mb-8">
         <div className="block">
-          <h1 className="text-3xl font-bold text-blue-400 mb-2">
+          <h1 className="text-3xl font-bold text-[#F06543]  mb-2">
             All Travel Leads
           </h1>
           <p className="text-gray-600">
@@ -169,14 +169,13 @@ const MyLeads = () => {
         </div>
         <button
           onClick={handleGoToDashboard}
-          className="flex items-center gap-2 border cursor-pointer border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white font-medium rounded-lg px-6 py-2 transition-colors duration-200"
-        >
+          className="flex items-center gap-2 border cursor-pointer border-[#F06543]  text-[#F06543]  hover:bg-[#F06543]  hover:text-white font-medium rounded-lg px-6 py-2 transition-colors duration-200">
           <BsArrowLeft className="text-lg" />
           <span>Back to Dashboard</span>
         </button>
       </div>
       <div className="mt-2 sm:mt-8 w-full m-0 sm:m-4 p-4 shadow-md border rounded-lg">
-        <h4 className="text-2xl mt-10 text-blue-400">Search & Filter</h4>
+        <h4 className="text-2xl mt-10 text-[#F06543] ">Search & Filter</h4>
         <p className="text-gray-400">
           Refine your leads search with multiple advanced filters
         </p>
@@ -217,8 +216,7 @@ const MyLeads = () => {
               name="tripType"
               value={filters.tripType}
               onChange={handleFilterChange}
-              className="flex-1 min-w-[250px] p-2.5 border border-gray-300 rounded-lg text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            >
+              className="flex-1 min-w-[250px] p-2.5 border border-gray-300 rounded-lg text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
               <option value="">All Trip Types</option>
               <option value="Business">Business</option>
               <option value="Family">Family</option>
@@ -236,8 +234,7 @@ const MyLeads = () => {
               name="satatus" // Changed from status to satatus
               value={filters.satatus}
               onChange={handleFilterChange}
-              className="flex-1 min-w-[250px] p-2.5 border border-gray-300 rounded-lg text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            >
+              className="flex-1 min-w-[250px] p-2.5 border border-gray-300 rounded-lg text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
               <option value="">--Choose Status--</option>
               <option value="buy">Buy</option>
               <option value="sold">Sold</option>
@@ -246,8 +243,7 @@ const MyLeads = () => {
               name="leadType"
               value={filters.leadType}
               onChange={handleFilterChange}
-              className="flex-1 min-w-[250px] p-2.5 border border-gray-300 rounded-lg text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            >
+              className="flex-1 min-w-[250px] p-2.5 border border-gray-300 rounded-lg text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
               <option value="">--Choose Lead Type--</option>
               <option value="domestic">Domestic</option>
               <option value="international">International</option>
@@ -280,10 +276,9 @@ const MyLeads = () => {
                 className={`px-3 py-1 rounded-md border border-gray-300 text-sm transition-colors ${
                   !pagination.hasPrevPage
                     ? "bg-gray-100 text-gray-400 cursor-not-allowed"
-                    : "bg-white text-gray-700 hover:bg-blue-50 hover:text-blue-600"
+                    : "bg-white text-gray-700 hover:bg-blue-50 hover:text-[#F06543] "
                 }`}
-                aria-label="Previous page"
-              >
+                aria-label="Previous page">
                 Previous
               </button>
               {getPageNumbers().map((page) => (
@@ -293,10 +288,9 @@ const MyLeads = () => {
                   className={`px-3 py-1 rounded-md border border-gray-300 text-sm transition-colors ${
                     pagination.page === page
                       ? "bg-blue-500 text-white"
-                      : "bg-white text-gray-700 hover:bg-blue-50 hover:text-blue-600"
+                      : "bg-white text-gray-700 hover:bg-blue-50 hover:text-[#F06543] "
                   }`}
-                  aria-label={`Page ${page}`}
-                >
+                  aria-label={`Page ${page}`}>
                   {page}
                 </button>
               ))}
@@ -306,10 +300,9 @@ const MyLeads = () => {
                 className={`px-3 py-1 rounded-md border border-gray-300 text-sm transition-colors ${
                   !pagination.hasNextPage
                     ? "bg-gray-100 text-gray-400 cursor-not-allowed"
-                    : "bg-white text-gray-700 hover:bg-blue-50 hover:text-blue-600"
+                    : "bg-white text-gray-700 hover:bg-blue-50 hover:text-[#F06543] "
                 }`}
-                aria-label="Next page"
-              >
+                aria-label="Next page">
                 Next
               </button>
             </div>

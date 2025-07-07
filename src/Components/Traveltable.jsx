@@ -252,8 +252,7 @@ const Traveltable = () => {
             <select
               value={selectedLeadType}
               onChange={(e) => setSelectedLeadType(e.target.value)}
-              className="w-full sm:w-1/2 p-2.5 border border-gray-300 rounded-lg text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            >
+              className="w-full sm:w-1/2 p-2.5 border border-gray-300 rounded-lg text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#F06543]">
               <option value="">All Lead Types</option>
               <option value="domestic">Domestic</option>
               <option value="international">International</option>
@@ -267,7 +266,7 @@ const Traveltable = () => {
         <div className="relative z-10 max-w-7xl mx-auto">
           <div className="w-full bg-white/90 shadow-md backdrop-blur-lg overflow-x-auto">
             <table className="min-w-full table-auto text-sm border-0">
-              <thead className="bg-blue-400 text-white text-xs sm:text-sm font-semibold">
+              <thead className="bg-[#F06543] text-white text-xs sm:text-sm font-semibold">
                 <tr>
                   <th className="px-4 py-4 text-left">Customer</th>
                   <th className="px-4 py-4 text-left">From City</th>
@@ -284,8 +283,7 @@ const Traveltable = () => {
                   <tr>
                     <td
                       colSpan="8"
-                      className="px-4 py-4 text-center text-gray-600"
-                    >
+                      className="px-4 py-4 text-center text-gray-600">
                       No leads match the current filters.
                     </td>
                   </tr>
@@ -294,8 +292,7 @@ const Traveltable = () => {
                     <tr
                       key={lead.id || lead._id}
                       className="hover:bg-gray-50 border-b h-16"
-                      style={{ height: "50px !important" }}
-                    >
+                      style={{ height: "50px !important" }}>
                       <td className="px-4 py-4">{lead.name}</td>
                       <td className="px-4 py-4">{lead.city}</td>
                       <td className="px-4 py-3">{lead.destination}</td>
@@ -314,8 +311,7 @@ const Traveltable = () => {
                           <button
                             disabled={loading}
                             onClick={() => handleBuyClick(lead)}
-                            className="bg-blue-400 hover:bg-blue-600 text-white px-3 py-1 rounded-md text-sm font-semibold transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
-                          >
+                            className="bg-white border border-[#F06543] hover:bg-[#F06543] hover:text-white text-[#F06543] px-3 py-1 rounded-md text-sm font-semibold transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
                             {loading ? "Processing..." : "Buy Now"}
                           </button>
                         )}
@@ -348,8 +344,7 @@ const Traveltable = () => {
                         ? "bg-gray-100 text-gray-400 cursor-not-allowed"
                         : "bg-white text-gray-700 hover:bg-blue-50 hover:text-blue-600"
                     }`}
-                    aria-label="Previous page"
-                  >
+                    aria-label="Previous page">
                     Previous
                   </button>
                   {getPageNumbers().map((page) => (
@@ -361,8 +356,7 @@ const Traveltable = () => {
                           ? "bg-blue-500 text-white"
                           : "bg-white text-gray-700 hover:bg-blue-50 hover:text-blue-600"
                       }`}
-                      aria-label={`Page ${page}`}
-                    >
+                      aria-label={`Page ${page}`}>
                       {page}
                     </button>
                   ))}
@@ -374,8 +368,7 @@ const Traveltable = () => {
                         ? "bg-gray-100 text-gray-400 cursor-not-allowed"
                         : "bg-white text-gray-700 hover:bg-blue-50 hover:text-blue-600"
                     }`}
-                    aria-label="Next page"
-                  >
+                    aria-label="Next page">
                     Next
                   </button>
                 </div>
@@ -400,15 +393,13 @@ const Traveltable = () => {
               <button
                 onClick={cancelBuy}
                 disabled={loading}
-                className="bg-gray-300 text-gray-800 px-4 py-2 rounded hover:bg-gray-400 transition"
-              >
+                className="bg-gray-300 text-gray-800 px-4 py-2 rounded hover:bg-gray-400 transition">
                 {loading ? "Processing..." : "Cancel"}
               </button>
               <button
                 onClick={confirmBuy}
                 disabled={loading}
-                className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
-              >
+                className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
                 {loading ? "Processing..." : "Yes, Buy!"}
               </button>
             </div>

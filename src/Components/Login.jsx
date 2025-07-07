@@ -69,7 +69,7 @@ const Login = () => {
               id="email"
               value={email}
               onChange={(e) => setEmail(e.target.value.trim())}
-              className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+              className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-[#F06543] focus:border-[#F06543]"
               placeholder="you@example.com or phone number"
               required
             />
@@ -86,7 +86,7 @@ const Login = () => {
               id="password"
               value={password}
               onChange={(e) => setPassword(e.target.value.trim())}
-              className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+              className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-[#F06543] focus:border-[#F06543]"
               placeholder="••••••••"
               required
             />
@@ -95,7 +95,7 @@ const Login = () => {
           <div className="text-right">
             <Link
               to={"/forgot-password"}
-              className="text-sm text-blue-600 hover:underline">
+              className="text-sm text-[#F06543] hover:underline">
               Forgot password?
             </Link>
           </div>
@@ -104,7 +104,7 @@ const Login = () => {
             type="submit"
             onClick={handleLogin}
             disabled={isLoading}
-            className="w-full disabled:bg-blue-300 bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition">
+            className="w-full disabled:bg-[#daa395]   bg-white hover:text-white border border-[#F06543] text-[#F06543] py-2 rounded-md hover:bg-[#F06543] transition">
             Sign In
           </button>
         </form>
@@ -113,7 +113,7 @@ const Login = () => {
           Don't have an account?{" "}
           <Link
             to="/auth/signup"
-            className="text-blue-600 font-medium hover:underline">
+            className="text-[#F06543] font-medium hover:underline">
             Sign up
           </Link>
         </p>

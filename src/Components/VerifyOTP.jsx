@@ -138,14 +138,14 @@ const handleResendOtp = async () => {
                 onKeyDown={(e) => handleKeyDown(e, index)}
                 onPaste={(e) => e.preventDefault()} // Prevent pasting
                 autoFocus={index === 0}
-                className="w-12 h-12 text-center text-xl border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                className="w-12 h-12 text-center text-xl border border-gray-300 rounded-md focus:ring-2 focus:ring-[#F06543]   focus:outline-none"
               />
             ))}
           </div>
 
           <button
             type="submit"
-            className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition">
+            className="w-full bg-white  hover:text-white border border-[#F06543] text-[#F06543]    py-2 rounded-md hover:bg-[#F06543]   transition">
             Verify OTP
           </button>
         </form>
@@ -159,7 +159,7 @@ const handleResendOtp = async () => {
             <button
               onClick={handleResendOtp}
               disabled={isResending}
-              className="text-sm text-blue-600 hover:underline disabled:opacity-50">
+              className="text-sm text-[#F06543]  hover:underline disabled:opacity-50">
               {isResending ? "Resending..." : "Resend OTP"}
             </button>
           )}

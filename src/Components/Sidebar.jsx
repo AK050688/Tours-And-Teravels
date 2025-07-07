@@ -54,14 +54,14 @@ const SideBar = () => {
       <div className="flex flex-col justify-between h-full border-r border-slate-200">
         <div>
           <div className="flex justify-between items-center border-y p-4 h-20">
-            <h1 className="text-2xl font-bold text-blue-400">
+            <h1 className="text-2xl font-bold text-[#F06543]  ">
               <Link to="/">Tour&Travels</Link>
             </h1>
             {isMobile ? (
               <button
                 onClick={() => dispatch(setSidebarOpen(false))}
                 className="flex items-center">
-                <StepBack className="text-blue-400" />
+                <StepBack className="text-[#F06543]  " />
               </button>
             ) : null}
           </div>
@@ -72,7 +72,7 @@ const SideBar = () => {
                 to={link.to}
                 className={`block w-full px-4 py-2 rounded text-left ${
                   link.to === location.pathname
-                    ? "bg-blue-400 text-white"
+                    ? "bg-[#F06543]   text-white"
                     : "hover:bg-gray-100"
                 }`}>
                 {link.label}

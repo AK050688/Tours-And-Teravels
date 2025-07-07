@@ -5,7 +5,7 @@ const TravelCategories = () => {
   const categories = [
     {
       name: "Adventure",
-      icon: <Mountain className="w-12 h-12 text-blue-500" />,
+      icon: <Mountain className="w-12 h-12 text-[#F06543]" />,
       caption: "Thrilling experiences for adrenaline junkies.",
     },
     {
