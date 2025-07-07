@@ -3,11 +3,11 @@ import { ArrowRight } from "lucide-react";
 
 const CallToAction = () => {
   return (
-    <section
+    <section 
       className="py-24 bg-cover bg-center relative"
       style={{
         backgroundImage:
-          "url(../../../../public/ActionToCall/1.avif)",
+          "url(https://tours-and-teravels.vercel.app/ActionToCall/1.avif)",
       }}>
       <div className="absolute inset-0 bg-black opacity-50"></div>
       <div className="container mx-auto px-4 relative z-10 text-center text-white">
