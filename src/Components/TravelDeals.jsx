@@ -68,7 +68,7 @@ const TravelDeals = () => {
                   </span>
                 </div>
                 <a
-                  href="/book"
+                  href="/destinations"
                   className="inline-flex items-center px-4 py-2 bg-white hover:bg-[#F06543] text-[#F06543] hover:text-white font-semibold rounded-lg transition duration-300 border border-[#F06543]">
                   Book Now
                   <ArrowRight className="ml-2 w-5 h-5" />
