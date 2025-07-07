@@ -140,11 +140,20 @@ const HeroSection = () => {
     }
   };
 
-  // Carousel images (three high-quality travel images)
+  // Carousel images (updated to objects with src and alt)
   const carouselImages = [
-    "https://tours-and-teravels.vercel.app/carausel/carausel-1.avif",
-    "https://tours-and-teravels.vercel.app/carausel/carausel-2.jpg",
-    "https://tours-and-teravels.vercel.app/carausel/carausel-3.jpg",
+    {
+      src: "https://tours-and-teravels.vercel.app/carausel/carausel-1.avif",
+      alt: "Travel Destination 1",
+    },
+    {
+      src: "https://tours-and-teravels.vercel.app/carausel/carausel-2.jpg",
+      alt: "Travel Destination 2",
+    },
+    {
+      src: "https://tours-and-teravels.vercel.app/carausel/carausel-3.jpg",
+      alt: "Travel Destination 3",
+    },
   ];
 
   useEffect(() => {
@@ -156,19 +165,19 @@ const HeroSection = () => {
   }, [carouselImages.length]);
 
   return (
-    <section className="relative  py-8 sm:py-12 px-4 sm:px-6 md:px-16 overflow-hidden flex items-center">
+    <section className="relative py-8 sm:py-12 px-4 sm:px-6 md:px-16 overflow-hidden flex items-center min-h-screen">
       {/* Carousel */}
-      <div className="absolute inset-0 w-full h-full overflow-hidden z-0 opacity-100">
+      <div className="absolute inset-0 w-full h-full overflow-hidden z-0">
         <div
-          className="flex transition-transform duration-500 opacity-100"
-          style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
+          className="flex transition-transform duration-500 ease-in-out"
+          style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+        >
           {carouselImages.map((item, index) => (
             <div key={index} className="w-full flex-shrink-0">
-              {/* Render your carousel item content here */}
               <img
                 src={item.src}
                 alt={item.alt}
-                className="w-full h-auto opacity-100  "
+                className="w-full h-full object-cover"
               />
             </div>
           ))}
@@ -207,7 +216,7 @@ const HeroSection = () => {
               {/* Personal Information */}
               <div className="space-y-3">
                 <h3 className="text-sm font-semibold text-gray-800 flex items-center gap-1">
-                  <User className="w-4 h-4 text-blue-500" />
+                  <User className="w-4 h-4 text-[#F06543]" />
                   Personal Information
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -366,7 +375,8 @@ const HeroSection = () => {
                       name="leadType"
                       value={form.leadType}
                       onChange={handleChange}
-                      className="w-full pl-10 py-2 border border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all bg-gray-50 focus:bg-white hover:border-gray-300 appearance-none text-sm sm:text-base">
+                      className="w-full pl-10 py-2 border border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all bg-gray-50 focus:bg-white hover:border-gray-300 appearance-none text-sm sm:text-base"
+                    >
                       <option value="">Select Lead Type</option>
                       <option value="domestic">Domestic</option>
                       <option value="international">International</option>
@@ -378,7 +388,8 @@ const HeroSection = () => {
                       name="tripType"
                       value={form.tripType}
                       onChange={handleChange}
-                      className="w-full pl-10 py-2 border border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all bg-gray-50 focus:bg-white hover:border-gray-300 appearance-none text-sm sm:text-base">
+                      className="w-full pl-10 py-2 border border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all bg-gray-50 focus:bg-white hover:border-gray-300 appearance-none text-sm sm:text-base"
+                    >
                       <option value="">Select Trip Type</option>
                       <option value="Family">Family</option>
                       <option value="Friends">Friends</option>
@@ -465,7 +476,8 @@ const HeroSection = () => {
                 <button
                   disabled={isLoading}
                   type="submit"
-                  className="w-full py-3 px-8 rounded-xl bg-white text-[#f06543] hover:bg-[#f06543] hover:text-white transition-all font-semibold text-sm sm:text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 disabled:opacity-50">
+                  className="w-full py-3 px-8 rounded-xl bg-white text-[#f06543] hover:bg-[#f06543] hover:text-white transition-all font-semibold text-sm sm:text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 disabled:opacity-50"
+                >
                   {isLoading ? "Processing..." : "Save Travel Lead"}
                 </button>
               </div>
