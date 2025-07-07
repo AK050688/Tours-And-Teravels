@@ -1,19 +1,19 @@
-import React from 'react';
-import { Search, Sparkles, Heart, Download } from 'lucide-react'; // Lucide icons
+import React from "react";
+import { Search, Sparkles, Heart, PlaneTakeoff } from "lucide-react"; // Replaced Download with PlaneTakeoff
 
 const WhyChooseSection = () => {
   return (
-    <section className=" w-fullbg-white py-16 px-4 md:px-16">
+    <section className="w-full bg-white py-16 px-4 md:px-16">
       {/* Search Bar */}
       <div className="max-w-xl mx-auto mb-12">
         <div className="flex items-center border rounded-full shadow-sm overflow-hidden px-4 py-2">
           <Search className="text-gray-400 w-5 h-5 mr-2" />
           <input
             type="text"
-            placeholder="Search tours, places..."
+            placeholder="Search destinations, tours, activities..."
             className="flex-1 outline-none text-sm bg-transparent"
           />
-          <button className="bg-[#F06543] text-white px-4 py-1.5 rounded-full hover:bg-white hover:text-[#F06543] hover:border-[#F06543] border-1 text-sm font-medium">
+          <button className="bg-[#F06543] text-white px-4 py-1.5 rounded-full hover:bg-white hover:text-[#F06543] hover:border-[#F06543] border text-sm font-medium">
             Search
           </button>
         </div>
@@ -22,12 +22,11 @@ const WhyChooseSection = () => {
       {/* Heading */}
       <div className="text-center mb-10">
         <h2 className="text-3xl font-bold text-gray-900 mb-2">
-          Why Choose <span className="text-[#F06543]">Tour&Travels ?</span>
+          Why Travel With <span className="text-[#F06543]">WanderWorld?</span>
         </h2>
         <p className="text-gray-600 text-lg">
-          We make travel easy, enjoyable and memorable with our exceptional
-          services <br />
-          tailored to your needs.
+          Discover the world with confidence—crafted tours, seamless support,
+          and unforgettable adventures await you.
         </p>
       </div>
 
@@ -39,11 +38,11 @@ const WhyChooseSection = () => {
             <Sparkles className="w-5 h-5" />
           </div>
           <h4 className="font-semibold text-lg text-gray-900 mb-2">
-            Personalized Experience
+            Handpicked Destinations
           </h4>
           <p className="text-gray-600 text-sm">
-            Tailor-made itineraries designed to match your preferences, budget,
-            and travel style.
+            Explore only the most breathtaking and culturally rich places
+            curated by local travel experts.
           </p>
         </div>
 
@@ -53,25 +52,25 @@ const WhyChooseSection = () => {
             <Heart className="w-5 h-5" />
           </div>
           <h4 className="font-semibold text-lg text-gray-900 mb-2">
-            Memorable Journeys
+            Trusted by Travelers
           </h4>
           <p className="text-gray-600 text-sm">
-            Create lasting memories with unique experiences and carefully
-            selected accommodations.
+            Thousands of happy travelers trust us for our transparency, support,
+            and unforgettable service quality.
           </p>
         </div>
 
         {/* Card 3 */}
         <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition hover:border hover:border-[#f06543]">
-          <div className="w-10 h-10 bg-blue-100 text-[#f06543]rounded-full flex items-center justify-center mb-4">
-            <Download className="w-5 h-5" />
+          <div className="w-10 h-10 bg-blue-100 text-[#f06543] rounded-full flex items-center justify-center mb-4">
+            <PlaneTakeoff className="w-5 h-5" />
           </div>
           <h4 className="font-semibold text-lg text-gray-900 mb-2">
-            Hassle-Free Booking
+            Seamless Travel Support
           </h4>
           <p className="text-gray-600 text-sm">
-            Simple and secure booking process with flexible payment options and
-            24/7 customer support.
+            From planning to departure, enjoy full support, clear communication,
+            and worry-free adventures.
           </p>
         </div>
       </div>

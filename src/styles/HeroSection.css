@@ -1,0 +1,81 @@
+/* HeroSection.css */
+.carousel-track {
+  display: flex;
+  width: max-content;
+  animation:20s  infinite;
+}
+
+/* Keyframes */
+@keyframes scroll {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-100%); /* Adjust based on total content width */
+  }
+}
+
+.carousel-track img {
+  flex-shrink: 0;
+  width: 100vw;
+  height: 100%;
+  object-fit: cover;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Ensure the form container is scrollable if it exceeds the hero section height */
+.form-container {
+  max-height: 80vh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.3) transparent;
+}
+
+.form-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.form-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.form-container::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+}
+
+/* Ensure the hero section and carousel scale with content */
+/* section {
+  min-height: 80vh;
+  display: flex;
+  align-items: stretch;
+} */
+
+section > div {
+  height: 100%;
+}
+
+@media (max-width: 768px) {
+  .carousel-track img {
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .form-container {
+    max-height: none;
+    height: auto;
+  }
+
+  section {
+    min-height: auto;
+    height: auto;
+  }
+}

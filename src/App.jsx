@@ -37,7 +37,7 @@ import VerifyOTP from "./Components/VerifyOTP";
 import ChangePassword from "./Components/ChangePassword";
 import UserProfile from "./Components/UserProfile";
 import AdminUserProfile from "./Components/AdminUserProfile";
-import BuyDestinationPackage from "./Pages/BuyDestinationPackage";
+import DestinationDetails from "./Pages/DestinationDetails";
 
 const adminUser = ["admin"];
 const vendorUser = ["user"];
@@ -54,7 +54,10 @@ const App = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/destinations" element={<Destination />} />
-        <Route path="/destination/*" element={<BuyDestinationPackage />} />
+        <Route
+          path="/destination/:destinationName"
+          element={<DestinationDetails />}
+        />
       </Route>
       <Route path="/dashboard" element={<DashboardLayout />}>
         <Route index element={<Dashboard />} />

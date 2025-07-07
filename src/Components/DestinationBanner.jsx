@@ -3,7 +3,7 @@ import React from "react";
 function DestinationBanner() {
   return (
     <div>
-      <div class="h-[60vh]">
+      <div className="h-[60vh]">
         <img
           src="/DestinationBanner.png"
           className="relative  w-full h-full object-cover bg-center"

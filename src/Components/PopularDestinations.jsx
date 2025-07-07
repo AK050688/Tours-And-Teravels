@@ -32,7 +32,7 @@ const PopularDestinations = () => {
   const navigate = useNavigate();
 
   const handleOnClickDestinationViaName = (name) => {
-    navigate(`/destination/${name}`);
+    navigate(`/destinations/${name}`);
   }
   const handleOnClickDestination = () => {
     navigate(`/destinations`);

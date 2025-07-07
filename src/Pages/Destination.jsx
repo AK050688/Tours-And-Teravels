@@ -1,14 +1,14 @@
-import React from 'react'
-import DestinationBanner from '../Components/DestinationBanner'
-import DestinationsSection from '../Components/DestinationSection'
+import React from "react";
+import DestinationBanner from "../Components/DestinationBanner";
+import DestinationsSection from "../Components/DestinationSection";
 
 function Destination() {
   return (
     <div>
-        <DestinationBanner/>
-        <DestinationsSection/>
+      <DestinationBanner />
+      <DestinationsSection />
     </div>
-  )
+  );
 }
 
-export default Destination
+export default Destination;
