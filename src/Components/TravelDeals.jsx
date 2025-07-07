@@ -8,28 +8,28 @@ const TravelDeals = () => {
       oldPrice: 12000,
       discountedPrice: 9999,
       discount: 17,
-      image: "../../public/TopTravelDeal/1.avif",
+      image: "https://tours-and-teravels.vercel.app/TopTravelDeal/1.avif",
     },
     {
       destination: "Paris, France",
       oldPrice: 15000,
       discountedPrice: 12000,
       discount: 20,
-      image: "../../public/TopTravelDeal/2.avif",
+      image: "https://tours-and-teravels.vercel.app/TopTravelDeal/2.avif",
     },
     {
       destination: "Santorini, Greece",
       oldPrice: 18000,
       discountedPrice: 13500,
       discount: 25,
-      image: "../../public/TopTravelDeal/3.avif",
+      image: "https://tours-and-teravels.vercel.app/TopTravelDeal/3.avif",
     },
     {
       destination: "Tokyo, Japan",
       oldPrice: 20000,
       discountedPrice: 16000,
       discount: 20,
-      image: "../../public/TopTravelDeal/4.jpg",
+      image: "https://tours-and-teravels.vercel.app/TopTravelDeal/4.jpg",
     },
   ];
 

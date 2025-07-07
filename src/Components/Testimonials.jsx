@@ -5,21 +5,21 @@ const Testimonials = () => {
   const testimonials = [
     {
       name: "Sarah Johnson",
-      photo: "../../public/Testimonials/1.avif",
+      photo: "https://tours-and-teravels.vercel.app/Testimonials/1.avif",
       rating: 5,
       quote:
         "An unforgettable adventure! The team made our trip seamless and magical.",
     },
     {
       name: "Michael Chen",
-      photo: "../../public/Testimonials/2.avif",
+      photo: "https://tours-and-teravels.vercel.app/Testimonials/2.avif",
       rating: 4,
       quote:
         "From booking to the journey, everything was perfect. Highly recommend!",
     },
     {
       name: "Emily Davis",
-      photo: "../../public/Testimonials/3.jpg",
+      photo: "https://tours-and-teravels.vercel.app/Testimonials/3.jpg",
       rating: 5,
       quote:
         "The best travel experience I've ever had. Can't wait to book again!",

@@ -142,9 +142,9 @@ const HeroSection = () => {
 
   // Carousel images (three high-quality travel images)
   const carouselImages = [
-    "../../public/carausel/carausel-1.avif",
-    "../../public/carausel/carausel-2.jpg",
-    "../../public/carausel/carausel-3.jpg",
+    "https://tours-and-teravels.vercel.app/carausel/carausel-1.avif",
+    "https://tours-and-teravels.vercel.app/carausel/carausel-2.jpg",
+    "https://tours-and-teravels.vercel.app/carausel/carausel-3.jpg",
   ];
 
   useEffect(() => {
