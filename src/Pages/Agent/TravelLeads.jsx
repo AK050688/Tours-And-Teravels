@@ -16,9 +16,6 @@ const destinationImages = {
 const TravelLeads = () => {
   const user = useSelector(selectUser);
   const [leads, setLeads] = useState([]);
-  console.log("====================================");
-  console.log(leads);
-  console.log("====================================");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
@@ -106,6 +103,8 @@ const TravelLeads = () => {
 
       const response = await api.get(url);
       const { leads, ...paginate } = response.data.data;
+      console.log("====================================leads", leads);
+      
 
       setPagination({
         limit: pagination.limit,
@@ -133,10 +132,10 @@ const TravelLeads = () => {
           ? new Date(lead.travelDate).toISOString().split("T")[0]
           : "",
         travelTime: lead.travelTime || "",
-        adult: String(lead.adult || 0),
+        adult: String(lead.totalMembers.adult || 0),
         status: lead.satatus || "",
-        children: String(lead.children || 0),
-        infant: String(lead.infant || 0),
+        children: String(lead.totalMembers.children || 0),
+        infant: String(lead.totalMembers.infant || 0),
         tripType: lead.tripType || "",
         leadType: lead.leadType || "",
         totalMembers: lead.totalMembers || 0,

@@ -230,7 +230,7 @@ const HeroSection = () => {
       </div>
 
       {/* Right Content (Form) */}
-      <div className=" w-full mt-5 px-4">
+      <div className=" w-full mt-5 px-12">
         <div className="bg-white/10 backdrop-blur-md rounded-2xl shadow-xl border border-white/20 p-4 sm:p-6">
           <h2 className="text-center font-bold text-gray-800 text-lg sm:text-xl">
             Add New Travel Lead
