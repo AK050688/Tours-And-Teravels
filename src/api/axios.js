@@ -7,11 +7,8 @@ const api = axios.create({
 });
 
 export const axiosWithCredentials = axios.create({
-  baseURL: getEnv("VITE_APP_BASE_API") || "http://103.205.142.244:8055",
+  baseURL: getEnv("VITE_APP_BASE_API"),
   withCredentials: true,
 });
 
 export default api;
-
-// https://7wvxgkc8-8000.inc1.devtunnels.ms
-// https://begin-yatra-nq40.onrender.com

@@ -102,7 +102,6 @@ const LeadsResults = ({ filters, leads, getLeads, totalLeads }) => {
       lead.email.toLowerCase().includes(searchTerm) ||
       lead.destination.toLowerCase().includes(searchTerm) ||
       lead.leadId.toLowerCase().includes(searchTerm);
-
     const matchesDestination =
       !filters.destination ||
       lead.destination

@@ -41,6 +41,7 @@ import DestinationDetails from "./Pages/DestinationDetails";
 import JoinForFree from "./Pages/Agent/JoinForFree";
 import TravelLeads from "./Pages/Agent/TravelLeads";
 import AdvertiseWithUs from "./Pages/Agent/AdvertiseWithUs";
+import TravelLeadDetail from "./Pages/Agent/TravelLeadDetail";
 
 const adminUser = ["admin"];
 const vendorUser = ["user"];
@@ -54,9 +55,13 @@ const App = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/destinations" element={<Destination />} />
-        <Route path="/agent/join" element={<JoinForFree />} />
-        <Route path="/agent/travel-leads" element={<TravelLeads />} />
-        <Route path="/agent/advertise" element={<AdvertiseWithUs />} />
+
+        <Route path="/agent">
+          <Route path="join" element={<JoinForFree />} />
+          <Route path="travel-leads" element={<TravelLeads />} />
+          <Route path="travel-lead/:id" element={<TravelLeadDetail />} />
+          <Route path="advertise" element={<AdvertiseWithUs />} />
+        </Route>
         <Route path="/auth">
           <Route path="signup" element={<Signup />} />
           <Route path="login" element={<Login />} />
