@@ -4,14 +4,23 @@ import api from "../../api/axios";
 
 const TravelLeadDetail = () => {
   const { id } = useParams();
+  console.log(id);
+  
   const [lead, setLead] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
   useEffect(() => {
     const fetchLeadDetails = async () => {
       try {
-        const response = await api.get(`/api/leads/${id}`);
+        if (!id) {
+          throw new Error("Lead ID is required");
+        }
+        const response = await api.get(`/api/leads/getLeadById/${id}`);
+        console.log("?????????????????",response);
+        
+        if (!response.data || !response.data.data) {
+          throw new Error("Lead data not found");
+        }
         const leadData = response.data.data;
         // Normalize the lead data
         const normalizedLead = {
@@ -24,7 +33,7 @@ const TravelLeadDetail = () => {
           travelDate: leadData.travelDate || "",
           travelTime: leadData.travelTime || "",
           adult: String(leadData.adult || 0),
-          status: leadData.status || "",
+          status: leadData.satatus || "",
           children: String(leadData.children || 0),
           infant: String(leadData.infant || 0),
           tripType: leadData.tripType || "",
@@ -32,7 +41,8 @@ const TravelLeadDetail = () => {
         };
         setLead(normalizedLead);
       } catch (error) {
-        setError(error.message);
+        console.error("Error fetching lead details:", error);
+        setError(error.response?.data?.message || error.message || "Failed to fetch lead details");
       } finally {
         setLoading(false);
       }

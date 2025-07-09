@@ -106,6 +106,8 @@ const TravelLeads = () => {
 
       const response = await api.get(url);
       const { leads, ...paginate } = response.data.data;
+      console.log("====================================leads", leads);
+      
 
       setPagination({
         limit: pagination.limit,
@@ -133,10 +135,10 @@ const TravelLeads = () => {
           ? new Date(lead.travelDate).toISOString().split("T")[0]
           : "",
         travelTime: lead.travelTime || "",
-        adult: String(lead.adult || 0),
+        adult: String(lead.totalMembers.adult || 0),
         status: lead.satatus || "",
-        children: String(lead.children || 0),
-        infant: String(lead.infant || 0),
+        children: String(lead.totalMembers.children || 0),
+        infant: String(lead.totalMembers.infant || 0),
         tripType: lead.tripType || "",
         leadType: lead.leadType || "",
         totalMembers: lead.totalMembers || 0,
@@ -198,7 +200,19 @@ const TravelLeads = () => {
   }, []);
 
   const handleOnClick = (lead) => {
-    navigate(`/agent/travel-lead/${lead.id}`);
+    if (!lead || !lead.id) {
+      console.error('Invalid lead data');
+      return;
+    }
+    setLoading(true);
+    try {
+      navigate(`/agent/travel-lead/${lead.id}`);
+    } catch (error) {
+      console.error('Navigation error:', error);
+      setError('Failed to navigate to lead details');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
