@@ -11,20 +11,12 @@ const DashboardNav = () => {
   const navigate = useNavigate();
   return (
     <div
-      className={`h-20 border-y px-2  items-center ${
+      className={`h-20 border-y px-2  ${
         isMobile
           ? "flex justify-between align-middle"
-          : "flex flex-col md:flex-row justify-between"
+          : "flex justify-end align-middle py-3"
       }`}>
-      <div className="flex justify-end w-full md:w-auto my-3 md:my-0 ">
-        <button
-          onClick={() => navigate("/")}
-          className="rounded-md border flex items-center justify-center text-center border-[#f06543] bg-white text-[#f06543] focus:ring-[#f06543] hover:bg-[#f06543] hover:text-white px-4 py-3 space-x-2">
-          <ArrowLeft className="h-4 w-4" />
-          <span>Back to home</span>
-        </button>
-      </div>
-      <div className="flex items-center mt-2 md:mt-0">
+      <div className={`flex justify-start mt-2 md:mt-0`}>
         {isMobile && (
           <button
             onClick={() => dispatch(setSidebarOpen(!isSidebarOpen))}
@@ -32,6 +24,14 @@ const DashboardNav = () => {
             <Menu className="w-8 h-8" />
           </button>
         )}
+      </div>
+      <div className="flex justify-end   w-full md:w-auto my-3 md:my-0 ">
+        <button
+          onClick={() => navigate("/")}
+          className="rounded-md border flex items-center justify-center text-center border-[#f06543] bg-white text-[#f06543] focus:ring-[#f06543] hover:bg-[#f06543] hover:text-white px-4 py-3 space-x-2">
+          <ArrowLeft className="h-4 w-4" />
+          <span>Back to home</span>
+        </button>
       </div>
     </div>
   );
