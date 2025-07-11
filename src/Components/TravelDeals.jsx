@@ -4,32 +4,32 @@ import { ArrowRight } from "lucide-react";
 const TravelDeals = () => {
   const deals = [
     {
-      destination: "Bali, Indonesia",
+      destination: "Bali",
       oldPrice: 12000,
       discountedPrice: 9999,
       discount: 17,
-      image: "https://tours-and-teravels.vercel.app/TopTravelDeal/1.avif",
+      image: "/TopTravelDeal/1.avif",
     },
     {
-      destination: "Paris, France",
+      destination: "Paris",
       oldPrice: 15000,
       discountedPrice: 12000,
       discount: 20,
-      image: "https://tours-and-teravels.vercel.app/TopTravelDeal/2.avif",
+      image: "/TopTravelDeal/2.avif",
     },
     {
-      destination: "Santorini, Greece",
+      destination: "Santorini",
       oldPrice: 18000,
       discountedPrice: 13500,
       discount: 25,
-      image: "https://tours-and-teravels.vercel.app/TopTravelDeal/3.avif",
+      image: "/TopTravelDeal/3.avif",
     },
     {
-      destination: "Tokyo, Japan",
+      destination: "Tokyo",
       oldPrice: 20000,
       discountedPrice: 16000,
       discount: 20,
-      image: "https://tours-and-teravels.vercel.app/TopTravelDeal/4.jpg",
+      image: "/TopTravelDeal/4.jpg",
     },
   ];
 
@@ -68,7 +68,7 @@ const TravelDeals = () => {
                   </span>
                 </div>
                 <a
-                  href="/destinations"
+                  href={`/destinations/${deal.destination}`}
                   className="inline-flex items-center px-4 py-2 bg-white hover:bg-[#F06543] text-[#F06543] hover:text-white font-semibold rounded-lg transition duration-300 border border-[#F06543]">
                   Book Now
                   <ArrowRight className="ml-2 w-5 h-5" />

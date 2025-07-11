@@ -45,7 +45,9 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="/career" className="hover:text-[#f06543] text-gray-200">
+                <a
+                  href="/career"
+                  className="hover:text-[#f06543] text-gray-200">
                   Careers
                 </a>
               </li>
@@ -72,23 +74,24 @@ const Footer = () => {
             <h3 className="font-semibold mb-2 text-white">Destinations</h3>
             <ul className="text-gray-200 text-sm space-y-1">
               <li>
-                <a href="/destination/Goa" className="hover:text-[#f06543] text-gray-200">
+                <a
+                  href="/destinations/Goa"
+                  className="hover:text-[#f06543] text-gray-200">
                   Goa
                 </a>
               </li>
               <li>
-                <a href="/destination/Kerala" className="hover:text-[#f06543] text-gray-200">
+                <a
+                  href="/destinations/Kerala"
+                  className="hover:text-[#f06543] text-gray-200">
                   Kerala
                 </a>
               </li>
               <li>
-                <a href="/destination/Rajasthan" className="hover:text-[#f06543] text-gray-200">
+                <a
+                  href="/destinations/Rajasthan"
+                  className="hover:text-[#f06543] text-gray-200">
                   Rajasthan
-                </a>
-              </li>
-              <li>
-                <a href="/destination/Himachal Pradesh" className="hover:text-[#f06543] text-gray-200">
-                  Himachal Pradesh
                 </a>
               </li>
             </ul>
@@ -99,7 +102,9 @@ const Footer = () => {
             <h3 className="font-semibold mb-2 text-white">Support</h3>
             <ul className="text-gray-200 text-sm space-y-1">
               <li>
-                <a href="/contact" className="hover:text-[#f06543] text-gray-200">
+                <a
+                  href="/contact"
+                  className="hover:text-[#f06543] text-gray-200">
                   Contact Us
                 </a>
               </li>
@@ -109,12 +114,16 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="/terms-of-service" className="hover:text-[#f06543] text-gray-200">
+                <a
+                  href="/terms-of-service"
+                  className="hover:text-[#f06543] text-gray-200">
                   Terms of Service
                 </a>
               </li>
               <li>
-                <a href="/privacy-policy" className="hover:text-[#f06543] text-gray-200">
+                <a
+                  href="/privacy-policy"
+                  className="hover:text-[#f06543] text-gray-200">
                   Privacy Policy
                 </a>
               </li>

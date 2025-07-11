@@ -1,5 +1,6 @@
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import Destination from "./Destination";
 
 // Sample package data for each destination
 const destinationPackages = {
@@ -86,12 +87,89 @@ const destinationPackages = {
       },
     ],
   },
+  Tokyo: {
+    name: "Tokyo, Japan",
+    description: "Experience the vibrant city life and rich culture of Tokyo.",
+    image: "/TopTravelDeal/4.jpg",
+    packages: [
+      {
+        title: "Tokyo Adventure",
+        duration: "6 Days / 5 Nights",
+        price: "₹16,000",
+        highlights: [
+          "Visit to Tokyo Tower",
+          "Exploring Shibuya Crossing",
+          "Meiji Shrine tour",
+          "Sumo wrestling tournament",
+        ],
+      },
+    ],
+  },
+  Bali: {
+    name: "Bali, Indonesia",
+    description: "Experience the beautiful beaches and temples of Bali.",
+    image: "/TopTravelDeal/1.avif",
+    packages: [
+      {
+        title: "Bali Island Getaway",
+        duration: "5 Days / 4 Nights",
+        price: "₹9,999",
+        highlights: [
+          "Visit to Uluwatu Temple",
+          "Beach relaxation in Seminyak",
+          "Water sports in Nusa Dua",
+          "Exploring Ubud Monkey Forest",
+        ],
+      },
+    ],
+  },
+  Santorini: {
+    name: "Santorini, Greece",
+    description:
+      "Enjoy the picturesque whitewashed houses and blue-domed churches of Santorini.",
+    image: "/TopTravelDeal/3.avif",
+    packages: [
+      {
+        title: "Santorini Dream",
+        duration: "7 Days / 6 Nights",
+        price: "₹13,500",
+        highlights: [
+          "Visit to Oia village",
+          "Sunset cruise in the Aegean Sea",
+          "Exploring Fira town",
+          "Wine tasting in a local winery",
+        ],
+      },
+    ],
+  },
+  Paris: {
+    name: "Paris, France",
+    description: "Discover the romance and charm of the City of Light.",
+    image: "/TopTravelDeal/2.avif",
+    packages: [
+      {
+        title: "Parisian Delight",
+        duration: "6 Days / 5 Nights",
+        price: "₹12,000",
+        highlights: [
+          "Visit to the Eiffel Tower",
+          "River Seine cruise",
+          "Exploring the Louvre Museum",
+          "Montmartre neighborhood tour",
+        ],
+      },
+    ],
+  },
 };
 
 const DestinationDetails = () => {
   const { destinationName } = useParams(); // Get destination name from URL
   const navigate = useNavigate();
   const destination = destinationPackages[destinationName];
+
+  const handleBookNow = (destination) => {
+    navigate(`destinations/book-now/${destination}`);
+  };
 
   if (!destination) {
     return (
@@ -148,7 +226,9 @@ const DestinationDetails = () => {
                   </li>
                 ))}
               </ul>
-              <button className="mt-4 bg-white text-[#F06543] border border-[#F06543] px-4 py-2 rounded hover:bg-[#F06543] hover:text-white focus:outline-none">
+              <button
+                onClick={() => handleBookNow(destination)}
+                className="mt-4 bg-white text-[#F06543] border border-[#F06543] px-4 py-2 rounded hover:bg-[#F06543] hover:text-white focus:outline-none">
                 Book Now
               </button>
             </div>

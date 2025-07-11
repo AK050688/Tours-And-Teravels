@@ -32,6 +32,9 @@ const PopularDestinations = () => {
   const navigate = useNavigate();
 
   const handleOnClickDestinationViaName = (name) => {
+    console.log('====================================');
+    console.log(name);
+    console.log('====================================');
     navigate(`/destinations/${name}`);
   }
   const handleOnClickDestination = () => {

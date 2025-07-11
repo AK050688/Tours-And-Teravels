@@ -59,7 +59,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/destinations" element={<Destination />} />
+
         <Route path="/career" element={<Career />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/press" element={<Press />} />
@@ -80,12 +80,14 @@ const App = () => {
           <Route path="verify-otp" element={<VerifyOTP />} />
           <Route path="add-new-password" element={<ChangePassword />} />
         </Route>
-
+        {/* destinations */}
+        <Route path="/destinations" element={<Destination />} />
         <Route
-          path="/destination/:destinationName"
+          path="/destinations/:destinationName"
           element={<DestinationDetails />}
         />
       </Route>
+      
       <Route path="/dashboard" element={<DashboardLayout />}>
         <Route index element={<Dashboard />} />
 

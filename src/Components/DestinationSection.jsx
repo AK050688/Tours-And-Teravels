@@ -23,6 +23,28 @@ export default function DestinationsSection() {
       description: "Step into history in the Pink City of Jaipur.",
       image: "/Rajasthan.jpg",
     },
+    {
+      name: "Bali",
+      description: "Experience the beautiful beaches and temples of Bali.",
+      image: "/TopTravelDeal/1.avif",
+    },
+    {
+      name: "Tokyo",
+      description:
+        "Experience the vibrant city life and rich culture of Tokyo.",
+      image: "/TopTravelDeal/4.jpg",
+    },
+    {
+      name: "Santorini",
+      description:
+        "Enjoy the picturesque whitewashed houses and blue-domed churches of Santorini.",
+      image: "/TopTravelDeal/3.avif",
+    },
+    {
+      name: "Paris",
+      description: "Discover the romance and charm of the City of Light.",
+      image: "/TopTravelDeal/2.avif",
+    },
   ];
 
   return (
@@ -51,7 +73,7 @@ export default function DestinationsSection() {
               </h3>
               <p className="text-sm text-gray-600 mt-1">{item.description}</p>
               <button
-                onClick={() => navigate(`/destination/${item.name}`)}
+                onClick={() => navigate(`/destinations/${item.name}`)}
                 className="text-[#F06543] mt-3 text-sm font-medium hover:underline focus:outline-none">
                 Learn More →
               </button>
