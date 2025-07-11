@@ -42,6 +42,12 @@ import JoinForFree from "./Pages/Agent/JoinForFree";
 import TravelLeads from "./Pages/Agent/TravelLeads";
 import AdvertiseWithUs from "./Pages/Agent/AdvertiseWithUs";
 import TravelLeadDetail from "./Pages/Agent/TravelLeadDetail";
+import Career from "./Pages/Career";
+import Blog from "./Pages/Blog";
+import Press from "./Pages/Press";
+import FAQ from "./Pages/FAQ";
+import TermsOfService from "./Pages/TermsOfService";
+import PrivacyPolicy from "./Pages/PrivacyPolicy";
 
 const adminUser = ["admin"];
 const vendorUser = ["user"];
@@ -53,8 +59,13 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/contact" element={<Contact />} />
         <Route path="/destinations" element={<Destination />} />
+        <Route path="/career" element={<Career />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/press" element={<Press />} />
+        <Route path="/faq" element={<FAQ />} />
+        <Route path="/terms-of-service" element={<TermsOfService />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
 
         <Route path="/agent">
           <Route path="join" element={<JoinForFree />} />

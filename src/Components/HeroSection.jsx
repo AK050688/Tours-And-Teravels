@@ -233,7 +233,7 @@ const HeroSection = () => {
       <div className=" w-full mt-5 px-12">
         <div className="bg-white/10 backdrop-blur-md rounded-2xl shadow-xl border border-white/20 p-4 sm:p-6">
           <h2 className="text-center font-bold text-gray-800 text-lg sm:text-xl">
-            Add New Travel Lead
+            Start Your Journey
           </h2>
           <form onSubmit={handleSubmit} className="space-y-4 mt-4 w-full">
             {/* Personal Information */}
@@ -395,7 +395,7 @@ const HeroSection = () => {
                     value={form.leadType}
                     onChange={handleChange}
                     className="w-full pl-10 py-2 border border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all bg-gray-50 focus:bg-white hover:border-gray-300 appearance-none text-sm sm:text-base">
-                    <option value="">Select Lead Type</option>
+                    <option value="">Select Package Type</option>
                     <option value="domestic">Domestic</option>
                     <option value="international">International</option>
                   </select>
@@ -494,7 +494,7 @@ const HeroSection = () => {
                 disabled={isLoading}
                 type="submit"
                 className="w-full py-3 px-8 bg-[#f06543]  rounded-xl text-white hover:bg-[#fe8a6d] hover:text-white transition-all font-semibold text-sm sm:text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 disabled:opacity-50">
-                {isLoading ? "Processing..." : "Save Travel Lead"}
+                {isLoading ? "Processing..." : "Inquiry"}
               </button>
             </div>
           </form>

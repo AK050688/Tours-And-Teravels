@@ -219,7 +219,7 @@ const TravelLeads = () => {
     <div className="min-h-screen bg-[#E8E9EB] py-6 px-4 sm:px-6 lg:px-8">
       <div className="mx-auto bg-white shadow-2xl  p-8  ">
         <h2 className="text-3xl text-[#F06543] font-extrabold text-center mb-8">
-          Travel Leads
+          Travel Packages
         </h2>
 
         {/* Filters and Search */}
