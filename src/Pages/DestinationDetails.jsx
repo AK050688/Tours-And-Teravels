@@ -170,7 +170,7 @@ const DestinationDetails = () => {
   const handleBookNow = (destination) => {
     navigate(`destinations/book-now/${destination}`);
   };
-
+  
   if (!destination) {
     return (
       <div className="min-h-screen bg-gray-100 flex items-center justify-center">
