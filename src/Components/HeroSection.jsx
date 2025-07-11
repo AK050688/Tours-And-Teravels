@@ -329,7 +329,7 @@ const HeroSection = () => {
                 <Plane className="w-4 h-4 text-purple-500" />
                 Travel Details
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 gap-3">
+              <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 gap-3">
                 <div className="group relative">
                   <MapPin className="absolute left-3 top-3  transform-translate-y-1/2 w-4 h-4 text-gray-400 group-focus-within:text-purple-500 transition-colors" />
                   <input
